@@ -1,16 +1,42 @@
-// Smooth scrolling for anchor links
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
+// Form handling
+const conversationForm = document.querySelector('.conversation-form');
+if (conversationForm) {
+    conversationForm.addEventListener('submit', function (e) {
         e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-            target.scrollIntoView({
-                behavior: 'smooth',
-                block: 'start'
-            });
-        }
+        
+        // Get form data
+        const formData = new FormData(this);
+        const name = formData.get('name');
+        const email = formData.get('email');
+        const company = formData.get('company');
+        const message = formData.get('message');
+        
+        // Log the data (in production, this would send to a backend)
+        console.log('Form submitted:', {
+            name,
+            email,
+            company,
+            message
+        });
+        
+        // Show success message
+        const button = this.querySelector('button[type="submit"]');
+        const originalText = button.textContent;
+        button.textContent = 'Thank you! We\'ll be in touch soon.';
+        button.disabled = true;
+        
+        // Reset form
+        this.reset();
+        
+        // Restore button after 3 seconds
+        setTimeout(() => {
+            button.textContent = originalText;
+            button.disabled = false;
+        }, 3000);
     });
-});
+}
+
+
 
 // Navigation active state
 document.addEventListener('DOMContentLoaded', function () {

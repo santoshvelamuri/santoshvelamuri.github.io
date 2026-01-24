@@ -30,7 +30,7 @@
             <p class="hero-subtitle">We help leadership teams translate business strategy into clear architecture decisions, delivery roadmaps, and AI-driven process automation.</p>
             <p class="hero-trust">Focused consulting for complex transformation and modernization.</p>
             <div class="hero-buttons">
-                <button class="btn btn-primary">Start a Conversation</button>
+                <a href="#start-conversation" class="btn btn-primary">Start a Conversation</a>
                 <a href="#how-we-work" class="btn btn-secondary">See how we work</a>
             </div>
         </div>
@@ -230,12 +230,40 @@
         </div>
     </section>
 
+    <!-- Start a Conversation Section -->
+    <section class="start-conversation" id="start-conversation">
+        <div class="container">
+            <h2>Start a Conversation</h2>
+            <p class="conversation-intro">Let's discuss your strategy, architecture, or AI challenges.</p>
+            <form class="conversation-form">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="company">Company</label>
+                    <input type="text" id="company" name="company">
+                </div>
+                <div class="form-group">
+                    <label for="message">Tell us about your challenge</label>
+                    <textarea id="message" name="message" rows="5" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Send Message</button>
+            </form>
+            <p class="form-note">We'll get back to you within 24 hours with a focused conversation about your context and next steps.</p>
+        </div>
+    </section>
+
     <!-- Final CTA Section -->
     <section class="cta-section">
         <div class="container">
             <h2>Let's talk about your strategy, architecture, or AI challenges.</h2>
             <p>No sales pitch—just a focused conversation about your context and next steps.</p>
-            <button class="btn btn-large">Book a Conversation</button>
+            <a href="#start-conversation" class="btn btn-large">Book a Conversation</a>
         </div>
     </section>
 
