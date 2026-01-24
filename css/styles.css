@@ -1,0 +1,762 @@
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #fff;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Navigation */
+.navbar {
+    background: #1a1f3a;
+    color: white;
+    padding: 1.5rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.logo-icon {
+    font-size: 1.8rem;
+}
+
+.brand-name {
+    letter-spacing: 1px;
+}
+
+.nav-menu {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+
+.nav-menu a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    font-size: 0.95rem;
+}
+
+.nav-menu a:hover,
+.nav-menu a.active {
+    color: #f4b860;
+}
+
+/* Buttons */
+.btn {
+    padding: 12px 28px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    display: inline-block;
+    text-align: center;
+    text-decoration: none;
+}
+
+.btn-primary {
+    background: #b8860b;
+    color: white;
+}
+
+.btn-primary:hover {
+    background: #9a6f0a;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(184, 134, 11, 0.3);
+}
+
+.btn-secondary {
+    background: transparent;
+    color: white;
+    border: 2px solid white;
+}
+
+.btn-secondary:hover {
+    background: white;
+    color: #1a1f3a;
+}
+
+.btn-large {
+    padding: 16px 40px;
+    font-size: 1.1rem;
+}
+
+/* Hero Section */
+.hero {
+    background: linear-gradient(135deg, #1a1f3a 0%, #2d3456 100%);
+    color: white;
+    padding: 80px 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero .container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+}
+
+.hero-content h1 {
+    font-size: 3.5rem;
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+    font-weight: 700;
+}
+
+.hero-content p {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+    opacity: 0.9;
+    max-width: 500px;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+/* Architecture Diagram */
+.architecture-diagram {
+    position: relative;
+    height: 300px;
+    width: 100%;
+}
+
+.box {
+    position: absolute;
+    background: #d4a574;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+}
+
+.box-1 {
+    width: 100px;
+    height: 80px;
+    top: 20px;
+    right: 80px;
+}
+
+.box-2 {
+    width: 100px;
+    height: 80px;
+    top: 80px;
+    right: 200px;
+}
+
+.box-3 {
+    width: 100px;
+    height: 80px;
+    top: 150px;
+    right: 40px;
+}
+
+.box-4 {
+    width: 120px;
+    height: 100px;
+    bottom: 20px;
+    right: 120px;
+}
+
+/* Hero Page */
+.hero-page {
+    padding: 60px 0;
+}
+
+.hero-page h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.hero-page p {
+    font-size: 1.3rem;
+    opacity: 0.9;
+    max-width: 600px;
+}
+
+/* Who We Work With Section */
+.who-we-work {
+    padding: 80px 0;
+    background: #f9f7f4;
+}
+
+.who-we-work h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.who-we-work .subtitle {
+    text-align: center;
+    font-size: 1.1rem;
+    color: #666;
+    margin-bottom: 3rem;
+}
+
+.team-types {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3rem;
+    text-align: center;
+}
+
+.team-card {
+    padding: 2rem;
+}
+
+.team-icon {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+}
+
+.team-card h3 {
+    font-size: 1.3rem;
+    color: #333;
+}
+
+/* Familiar Challenges Section */
+.familiar-challenges {
+    padding: 80px 0;
+    background: white;
+}
+
+.familiar-challenges h2 {
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    text-align: center;
+}
+
+.challenges-list {
+    list-style: none;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.challenges-list li {
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+    border-left: 4px solid #b8860b;
+    background: #f9f7f4;
+    font-size: 1.1rem;
+}
+
+.challenges-list li:before {
+    content: "✓ ";
+    color: #b8860b;
+    font-weight: bold;
+    margin-right: 0.5rem;
+}
+
+/* Services Section */
+.services {
+    padding: 80px 0;
+    background: #f9f7f4;
+}
+
+.services h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.services .subtitle {
+    text-align: center;
+    font-size: 1.1rem;
+    color: #666;
+    margin-bottom: 3rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+}
+
+.service-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.service-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+.service-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.service-card h3 {
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+}
+
+.service-card p {
+    color: #666;
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+.service-card ul {
+    list-style: none;
+    font-size: 0.95rem;
+    color: #666;
+}
+
+.service-card ul li {
+    padding: 0.3rem 0;
+    padding-left: 1.5rem;
+    position: relative;
+}
+
+.service-card ul li:before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: #b8860b;
+}
+
+/* Strategy & Business Architecture Section */
+.strategy-architecture {
+    padding: 80px 0;
+    background: white;
+}
+
+.strategy-architecture h2 {
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    text-align: center;
+}
+
+.strategy-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+}
+
+.strategy-left, .strategy-right {
+    padding: 2rem;
+}
+
+.strategy-left ul, .strategy-right ul {
+    list-style: none;
+}
+
+.strategy-left li, .strategy-right li {
+    padding: 0.8rem 0;
+    padding-left: 1.5rem;
+    position: relative;
+    font-size: 1.05rem;
+}
+
+.strategy-left li:before, .strategy-right li:before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: #b8860b;
+    font-weight: bold;
+}
+
+/* Target Architecture Section */
+.target-architecture {
+    padding: 80px 0;
+    background: #f9f7f4;
+}
+
+.target-architecture h2 {
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    text-align: center;
+}
+
+.target-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+}
+
+/* Roadmaps Section */
+.roadmaps {
+    padding: 80px 0;
+    background: white;
+}
+
+.roadmaps h2 {
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    text-align: center;
+}
+
+.roadmaps-content {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+
+.roadmap-step {
+    background: #f9f7f4;
+    padding: 2rem;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.step-number {
+    width: 50px;
+    height: 50px;
+    background: #b8860b;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin: 0 auto 1rem;
+}
+
+.roadmap-step h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.roadmap-step p {
+    color: #666;
+    margin-bottom: 1.5rem;
+}
+
+.roadmap-step ul {
+    list-style: none;
+    text-align: left;
+    font-size: 0.95rem;
+}
+
+.roadmap-step ul li {
+    padding: 0.5rem 0;
+    padding-left: 1.5rem;
+    position: relative;
+    color: #666;
+}
+
+.roadmap-step ul li:before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: #b8860b;
+}
+
+/* Why Choose Section */
+.why-choose {
+    padding: 80px 0;
+    background: #f9f7f4;
+    text-align: center;
+}
+
+.why-choose h2 {
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+}
+
+.choose-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.choose-item {
+    padding: 2rem;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.choose-item h3 {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+}
+
+.choose-item p {
+    color: #666;
+    font-size: 0.95rem;
+}
+
+/* Methodology Section */
+.methodology {
+    padding: 80px 0;
+    background: white;
+}
+
+.methodology h2 {
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    text-align: center;
+}
+
+.phase {
+    margin-bottom: 3rem;
+    padding: 2rem;
+    background: #f9f7f4;
+    border-radius: 8px;
+    border-left: 4px solid #b8860b;
+}
+
+.phase-header {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.phase-number {
+    width: 60px;
+    height: 60px;
+    background: #b8860b;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+    font-weight: bold;
+    flex-shrink: 0;
+}
+
+.phase-header h3 {
+    font-size: 1.8rem;
+    margin: 0;
+}
+
+.phase-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+}
+
+.phase-description h4,
+.phase-deliverables h4 {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    color: #333;
+}
+
+.phase-description ul,
+.phase-deliverables ul {
+    list-style: none;
+    font-size: 0.95rem;
+}
+
+.phase-description li,
+.phase-deliverables li {
+    padding: 0.5rem 0;
+    padding-left: 1.5rem;
+    position: relative;
+    color: #666;
+}
+
+.phase-description li:before,
+.phase-deliverables li:before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: #b8860b;
+    font-weight: bold;
+}
+
+/* Engagement Model Section */
+.engagement-model {
+    padding: 80px 0;
+    background: #f9f7f4;
+}
+
+.engagement-model h2 {
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    text-align: center;
+}
+
+.engagement-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+
+.engagement-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.engagement-card h3 {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+}
+
+.engagement-card p {
+    color: #666;
+    margin-bottom: 1.5rem;
+    font-weight: 500;
+}
+
+.engagement-card ul {
+    list-style: none;
+    font-size: 0.95rem;
+}
+
+.engagement-card li {
+    padding: 0.5rem 0;
+    padding-left: 1.5rem;
+    position: relative;
+    color: #666;
+}
+
+.engagement-card li:before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: #b8860b;
+}
+
+/* Why This Approach Section */
+.why-approach {
+    padding: 80px 0;
+    background: white;
+}
+
+.why-approach h2 {
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    text-align: center;
+}
+
+.approach-reasons {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 3rem;
+}
+
+.reason {
+    padding: 2rem;
+    background: #f9f7f4;
+    border-radius: 8px;
+}
+
+.reason h3 {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+}
+
+.reason p {
+    color: #666;
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+/* CTA Section */
+.cta-section {
+    background: #1a1f3a;
+    color: white;
+    padding: 80px 0;
+    text-align: center;
+}
+
+.cta-section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.cta-section p {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+    opacity: 0.9;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Footer */
+.footer {
+    background: #0d0f1f;
+    color: white;
+    padding: 2rem 0;
+    text-align: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .hero .container,
+    .strategy-content,
+    .target-content,
+    .phase-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .nav-menu {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .services-grid,
+    .team-types,
+    .choose-grid,
+    .engagement-grid,
+    .approach-reasons,
+    .roadmaps-content {
+        grid-template-columns: 1fr;
+    }
+
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+    }
+
+    .btn {
+        width: 100%;
+    }
+}
