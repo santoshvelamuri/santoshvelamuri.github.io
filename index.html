@@ -235,7 +235,7 @@
         <div class="container">
             <h2>Start a Conversation</h2>
             <p class="conversation-intro">Let's discuss your strategy, architecture, or AI challenges.</p>
-            <form class="conversation-form">
+            <form class="conversation-form" id="conversation-form">
                 <div class="form-group">
                     <label for="name">Name</label>
                     <input type="text" id="name" name="name" required>
@@ -253,6 +253,7 @@
                     <textarea id="message" name="message" rows="5" required></textarea>
                 </div>
                 <button type="submit" class="btn btn-primary">Send Message</button>
+                <div class="form-message" id="form-message"></div>
             </form>
             <p class="form-note">We'll get back to you within 24 hours with a focused conversation about your context and next steps.</p>
         </div>

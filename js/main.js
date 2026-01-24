@@ -1,7 +1,7 @@
 // Form handling
-const conversationForm = document.querySelector('.conversation-form');
+const conversationForm = document.querySelector('#conversation-form');
 if (conversationForm) {
-    conversationForm.addEventListener('submit', function (e) {
+    conversationForm.addEventListener('submit', async function (e) {
         e.preventDefault();
         
         // Get form data
@@ -11,28 +11,50 @@ if (conversationForm) {
         const company = formData.get('company');
         const message = formData.get('message');
         
-        // Log the data (in production, this would send to a backend)
-        console.log('Form submitted:', {
-            name,
-            email,
-            company,
-            message
-        });
-        
-        // Show success message
         const button = this.querySelector('button[type="submit"]');
+        const messageDiv = document.getElementById('form-message');
         const originalText = button.textContent;
-        button.textContent = 'Thank you! We\'ll be in touch soon.';
-        button.disabled = true;
         
-        // Reset form
-        this.reset();
-        
-        // Restore button after 3 seconds
-        setTimeout(() => {
+        try {
+            button.disabled = true;
+            button.textContent = 'Sending...';
+            messageDiv.className = '';
+            messageDiv.textContent = '';
+            
+            // Send to API
+            const response = await fetch('/api/send-message', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    name,
+                    email,
+                    company,
+                    message
+                })
+            });
+            
+            const result = await response.json();
+            
+            if (result.success) {
+                messageDiv.className = 'form-message success';
+                messageDiv.textContent = 'Thank you! Your message has been sent. We\'ll be in touch within 24 hours.';
+                this.reset();
+                button.textContent = originalText;
+            } else {
+                messageDiv.className = 'form-message error';
+                messageDiv.textContent = result.error || 'Failed to send message. Please try again.';
+                button.textContent = originalText;
+                button.disabled = false;
+            }
+        } catch (error) {
+            console.error('Error:', error);
+            messageDiv.className = 'form-message error';
+            messageDiv.textContent = 'An error occurred. Please try again later.';
             button.textContent = originalText;
             button.disabled = false;
-        }, 3000);
+        }
     });
 }
 
