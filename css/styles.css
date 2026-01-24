@@ -118,78 +118,42 @@ body {
 .hero {
     background: linear-gradient(135deg, #1a1f3a 0%, #2d3456 100%);
     color: white;
-    padding: 80px 0;
+    padding: 100px 0;
     position: relative;
     overflow: hidden;
 }
 
 .hero .container {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 60px;
-    align-items: center;
+    text-align: center;
 }
 
-.hero-content h1 {
+.hero h1 {
     font-size: 3.5rem;
-    line-height: 1.2;
+    line-height: 1.3;
     margin-bottom: 1.5rem;
     font-weight: 700;
 }
 
-.hero-content p {
-    font-size: 1.1rem;
-    margin-bottom: 2rem;
-    opacity: 0.9;
-    max-width: 500px;
+.hero-subtitle {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+    opacity: 0.95;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.hero-trust {
+    font-size: 1rem;
+    margin-bottom: 2.5rem;
+    opacity: 0.8;
 }
 
 .hero-buttons {
     display: flex;
     gap: 1rem;
     flex-wrap: wrap;
-}
-
-/* Architecture Diagram */
-.architecture-diagram {
-    position: relative;
-    height: 300px;
-    width: 100%;
-}
-
-.box {
-    position: absolute;
-    background: #d4a574;
-    border: 2px solid rgba(255, 255, 255, 0.2);
-    border-radius: 8px;
-}
-
-.box-1 {
-    width: 100px;
-    height: 80px;
-    top: 20px;
-    right: 80px;
-}
-
-.box-2 {
-    width: 100px;
-    height: 80px;
-    top: 80px;
-    right: 200px;
-}
-
-.box-3 {
-    width: 100px;
-    height: 80px;
-    top: 150px;
-    right: 40px;
-}
-
-.box-4 {
-    width: 120px;
-    height: 100px;
-    bottom: 20px;
-    right: 120px;
+    justify-content: center;
 }
 
 /* Hero Page */
@@ -217,35 +181,42 @@ body {
 .who-we-work h2 {
     text-align: center;
     font-size: 2.5rem;
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
 }
 
-.who-we-work .subtitle {
+.section-intro {
     text-align: center;
     font-size: 1.1rem;
     color: #666;
-    margin-bottom: 3rem;
+    margin-bottom: 2.5rem;
 }
 
 .team-types {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 3rem;
-    text-align: center;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    margin-bottom: 2rem;
 }
 
 .team-card {
     padding: 2rem;
-}
-
-.team-icon {
-    font-size: 4rem;
-    margin-bottom: 1rem;
+    text-align: center;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
 
 .team-card h3 {
-    font-size: 1.3rem;
+    font-size: 1.1rem;
     color: #333;
+    margin: 0;
+}
+
+.team-caption {
+    text-align: center;
+    font-size: 0.95rem;
+    color: #666;
+    font-style: italic;
 }
 
 /* Familiar Challenges Section */
@@ -256,14 +227,14 @@ body {
 
 .familiar-challenges h2 {
     font-size: 2.5rem;
-    margin-bottom: 3rem;
+    margin-bottom: 2.5rem;
     text-align: center;
 }
 
 .challenges-list {
     list-style: none;
     max-width: 700px;
-    margin: 0 auto;
+    margin: 0 auto 2rem;
 }
 
 .challenges-list li {
@@ -271,14 +242,23 @@ body {
     margin-bottom: 1rem;
     border-left: 4px solid #b8860b;
     background: #f9f7f4;
-    font-size: 1.1rem;
+    font-size: 1rem;
 }
 
 .challenges-list li:before {
-    content: "✓ ";
+    content: "• ";
     color: #b8860b;
     font-weight: bold;
     margin-right: 0.5rem;
+}
+
+.challenges-close {
+    text-align: center;
+    font-size: 1.05rem;
+    color: #666;
+    font-weight: 600;
+    max-width: 600px;
+    margin: 0 auto;
 }
 
 /* Services Section */
@@ -290,71 +270,126 @@ body {
 .services h2 {
     text-align: center;
     font-size: 2.5rem;
-    margin-bottom: 1rem;
-}
-
-.services .subtitle {
-    text-align: center;
-    font-size: 1.1rem;
-    color: #666;
     margin-bottom: 3rem;
-    max-width: 600px;
-    margin-left: auto;
-    margin-right: auto;
 }
 
-.services-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 2rem;
-}
-
-.service-card {
-    background: white;
-    padding: 2rem;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
-}
-
-.service-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
-}
-
-.service-icon {
+.what-we-do h2 {
+    text-align: center;
     font-size: 2.5rem;
-    margin-bottom: 1rem;
+    margin-bottom: 3rem;
 }
 
-.service-card h3 {
-    font-size: 1.3rem;
+.service-full {
+    background: white;
+    padding: 2.5rem;
+    margin-bottom: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    border-left: 4px solid #b8860b;
+}
+
+.service-number {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    background: #b8860b;
+    color: white;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 40px;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+}
+
+.service-full h3 {
+    font-size: 1.5rem;
     margin-bottom: 0.5rem;
+    color: #333;
 }
 
-.service-card p {
+.service-tagline {
+    font-size: 1.05rem;
     color: #666;
+    font-weight: 600;
     margin-bottom: 1rem;
+}
+
+.service-description {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+}
+
+.service-deliverables h4 {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    color: #333;
     font-weight: 600;
 }
 
-.service-card ul {
+.service-deliverables ul {
     list-style: none;
+}
+
+.service-deliverables li {
+    padding: 0.5rem 0;
+    padding-left: 1.5rem;
+    position: relative;
     font-size: 0.95rem;
     color: #666;
 }
 
-.service-card ul li {
-    padding: 0.3rem 0;
-    padding-left: 1.5rem;
-    position: relative;
+.service-deliverables li:before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: #b8860b;
+    font-weight: bold;
 }
 
-.service-card ul li:before {
+/* AI Phases */
+.ai-phases {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin: 1.5rem 0;
+}
+
+.ai-phase h4 {
+    font-size: 1.05rem;
+    margin-bottom: 1rem;
+    color: #333;
+    font-weight: 600;
+}
+
+.ai-phase ul {
+    list-style: none;
+}
+
+.ai-phase li {
+    padding: 0.4rem 0;
+    padding-left: 1.5rem;
+    position: relative;
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.ai-phase li:before {
     content: "•";
     position: absolute;
     left: 0;
     color: #b8860b;
+}
+
+.ai-difference {
+    font-size: 0.95rem;
+    color: #555;
+    margin-top: 1rem;
+    padding: 1rem;
+    background: #f5f5f5;
+    border-radius: 4px;
 }
 
 /* Strategy & Business Architecture Section */
@@ -398,50 +433,33 @@ body {
     font-weight: bold;
 }
 
-/* Target Architecture Section */
-.target-architecture {
-    padding: 80px 0;
-    background: #f9f7f4;
-}
-
-.target-architecture h2 {
-    font-size: 2.5rem;
-    margin-bottom: 3rem;
-    text-align: center;
-}
-
-.target-content {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 4rem;
-}
-
-/* Roadmaps Section */
-.roadmaps {
+/* How We Work Section */
+.how-we-work {
     padding: 80px 0;
     background: white;
 }
 
-.roadmaps h2 {
+.how-we-work h2 {
+    text-align: center;
     font-size: 2.5rem;
     margin-bottom: 3rem;
-    text-align: center;
 }
 
-.roadmaps-content {
+.methodology-steps {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     gap: 2rem;
+    margin-bottom: 2rem;
 }
 
-.roadmap-step {
+.methodology-step {
     background: #f9f7f4;
     padding: 2rem;
     border-radius: 8px;
     text-align: center;
 }
 
-.step-number {
+.methodology-step .step-number {
     width: 50px;
     height: 50px;
     background: #b8860b;
@@ -455,70 +473,137 @@ body {
     margin: 0 auto 1rem;
 }
 
-.roadmap-step h3 {
-    font-size: 1.5rem;
-    margin-bottom: 0.5rem;
+.methodology-step h3 {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
 }
 
-.roadmap-step p {
+.methodology-step p {
     color: #666;
-    margin-bottom: 1.5rem;
-}
-
-.roadmap-step ul {
-    list-style: none;
-    text-align: left;
     font-size: 0.95rem;
+    line-height: 1.6;
 }
 
-.roadmap-step ul li {
-    padding: 0.5rem 0;
-    padding-left: 1.5rem;
-    position: relative;
+.methodology-micro {
+    text-align: center;
+    font-size: 1rem;
     color: #666;
-}
-
-.roadmap-step ul li:before {
-    content: "•";
-    position: absolute;
-    left: 0;
-    color: #b8860b;
+    font-weight: 600;
+    font-style: italic;
 }
 
 /* Why Choose Section */
 .why-choose {
     padding: 80px 0;
     background: #f9f7f4;
-    text-align: center;
 }
 
 .why-choose h2 {
     font-size: 2.5rem;
     margin-bottom: 3rem;
+    text-align: center;
 }
 
 .choose-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     gap: 2rem;
     margin-bottom: 3rem;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .choose-item {
     padding: 2rem;
     background: white;
     border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    border-left: 4px solid #b8860b;
 }
 
 .choose-item h3 {
-    font-size: 1.2rem;
-    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+    color: #333;
+    margin: 0;
 }
 
-.choose-item p {
+.testimonial {
+    background: white;
+    padding: 2rem;
+    border-radius: 8px;
+    border-left: 4px solid #b8860b;
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.testimonial p {
+    font-size: 1.1rem;
+    color: #333;
+    margin-bottom: 1rem;
+    font-style: italic;
+}
+
+.testimonial-author {
     color: #666;
     font-size: 0.95rem;
+}
+
+/* About Section */
+.about {
+    padding: 80px 0;
+    background: white;
+}
+
+.about h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+}
+
+.about-intro {
+    text-align: center;
+    font-size: 1.1rem;
+    color: #666;
+    max-width: 700px;
+    margin: 0 auto 2rem;
+}
+
+.about-text {
+    text-align: center;
+    font-size: 1.05rem;
+    color: #333;
+    margin-bottom: 1.5rem;
+}
+
+.about-principles {
+    list-style: none;
+    max-width: 500px;
+    margin: 1.5rem auto;
+    text-align: center;
+}
+
+.about-principles li {
+    padding: 0.5rem 0;
+    font-size: 1rem;
+    color: #666;
+}
+
+.about-principles li:before {
+    content: "•";
+    margin-right: 0.8rem;
+    color: #b8860b;
+    font-weight: bold;
+}
+
+.about-goal {
+    text-align: center;
+    font-size: 1.05rem;
+    color: #333;
+    max-width: 600px;
+    margin: 2rem auto 0;
+    font-weight: 600;
 }
 
 /* Methodology Section */
@@ -726,30 +811,12 @@ body {
 
 /* Responsive Design */
 @media (max-width: 768px) {
-    .hero .container,
-    .strategy-content,
-    .target-content,
-    .phase-content {
-        grid-template-columns: 1fr;
-        gap: 2rem;
+    .hero h1 {
+        font-size: 2.2rem;
     }
 
-    .nav-menu {
-        flex-direction: column;
-        gap: 1rem;
-    }
-
-    .services-grid,
-    .team-types,
-    .choose-grid,
-    .engagement-grid,
-    .approach-reasons,
-    .roadmaps-content {
-        grid-template-columns: 1fr;
-    }
-
-    .hero-content h1 {
-        font-size: 2.5rem;
+    .hero-subtitle {
+        font-size: 1.1rem;
     }
 
     .hero-buttons {
@@ -758,5 +825,28 @@ body {
 
     .btn {
         width: 100%;
+    }
+
+    .team-types {
+        grid-template-columns: 1fr;
+    }
+
+    .methodology-steps {
+        grid-template-columns: 1fr;
+    }
+
+    .choose-grid,
+    .ai-phases {
+        grid-template-columns: 1fr;
+    }
+
+    .strategy-content,
+    .target-content {
+        grid-template-columns: 1fr;
+    }
+
+    .nav-menu {
+        flex-direction: column;
+        gap: 1rem;
     }
 }
