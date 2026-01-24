@@ -1,6 +1,6 @@
-# YourFirm Website
+# Truly Services Website
 
-A professional website for YourFirm consulting services with contact form integration.
+A professional website for Truly Services consulting focused on Strategy, Architecture, and AI with contact form integration.
 
 ## Setup Instructions
 
