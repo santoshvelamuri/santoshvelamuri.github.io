@@ -47,8 +47,11 @@ body {
     font-weight: bold;
 }
 
-.logo-icon {
-    font-size: 1.8rem;
+.logo-img {
+    width: 32px;
+    height: 32px;
+    display: inline-block;
+    margin-right: 0.5rem;
 }
 
 .logo-svg {
