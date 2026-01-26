@@ -38,19 +38,19 @@ if (conversationForm) {
             const result = await response.json();
             
             if (result.success) {
-                messageDiv.className = 'form-message success';
+                messageDiv.className = 'form-message success show';
                 messageDiv.textContent = 'Thank you! Your message has been sent. We\'ll be in touch within 24 hours.';
                 this.reset();
                 button.textContent = originalText;
             } else {
-                messageDiv.className = 'form-message error';
+                messageDiv.className = 'form-message error show';
                 messageDiv.textContent = result.error || 'Failed to send message. Please try again.';
                 button.textContent = originalText;
                 button.disabled = false;
             }
         } catch (error) {
             console.error('Error:', error);
-            messageDiv.className = 'form-message error';
+            messageDiv.className = 'form-message error show';
             messageDiv.textContent = 'An error occurred. Please try again later.';
             button.textContent = originalText;
             button.disabled = false;

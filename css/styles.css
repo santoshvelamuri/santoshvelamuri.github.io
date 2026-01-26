@@ -808,7 +808,13 @@ body {
 
 .conversation-form {
     max-width: 600px;
-    margin: 0 auto 0;
+    margin: 0 auto;
+}
+
+.conversation-form .btn-primary {
+    width: 100%;
+    margin-top: 0;
+    margin-bottom: 0;
 }
 
 .form-group {
@@ -858,7 +864,11 @@ body {
     border-radius: 6px;
     text-align: center;
     font-weight: 500;
-    min-height: 20px;
+    display: none;
+}
+
+.form-message.show {
+    display: block;
 }
 
 .form-message.success {
