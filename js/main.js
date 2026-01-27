@@ -140,35 +140,43 @@ function setupMobileMenu() {
 
 setupMobileMenu();
 
-// Initialize scroll-to-top button after DOM is loaded
-document.addEventListener('DOMContentLoaded', function() {
+// Scroll event for navbar shadow and scroll-to-top button
+window.addEventListener('scroll', function () {
+    const navbar = document.querySelector('.navbar');
+    if (window.scrollY > 0) {
+        navbar.style.boxShadow = '0 2px 8px rgba(0, 0, 0, 0.2)';
+    } else {
+        navbar.style.boxShadow = '0 2px 4px rgba(0, 0, 0, 0.1)';
+    }
+    
+    // Show/hide scroll to top button
     const scrollToTopBtn = document.getElementById('scrollToTop');
-    
-    window.addEventListener('scroll', function () {
-        const navbar = document.querySelector('.navbar');
-        if (window.scrollY > 0) {
-            navbar.style.boxShadow = '0 2px 8px rgba(0, 0, 0, 0.2)';
-        } else {
-            navbar.style.boxShadow = '0 2px 4px rgba(0, 0, 0, 0.1)';
-        }
-        
-        // Show/hide scroll to top button
-        if (scrollToTopBtn) {
-            if (window.scrollY > 300) {
-                scrollToTopBtn.classList.add('visible');
-            } else {
-                scrollToTopBtn.classList.remove('visible');
-            }
-        }
-    });
-    
-    // Scroll to top functionality
     if (scrollToTopBtn) {
+        if (window.scrollY > 300) {
+            scrollToTopBtn.classList.add('visible');
+        } else {
+            scrollToTopBtn.classList.remove('visible');
+        }
+    }
+});
+
+// Set up scroll to top button click handler
+function setupScrollToTop() {
+    const scrollToTopBtn = document.getElementById('scrollToTop');
+    if (scrollToTopBtn && !scrollToTopBtn.hasAttribute('data-listener-added')) {
         scrollToTopBtn.addEventListener('click', function () {
             window.scrollTo({
                 top: 0,
                 behavior: 'smooth'
             });
         });
+        scrollToTopBtn.setAttribute('data-listener-added', 'true');
     }
-});
+}
+
+// Set up on DOM ready
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', setupScrollToTop);
+} else {
+    setupScrollToTop();
+}
