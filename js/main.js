@@ -1,3 +1,39 @@
+// Handle anchor links for smooth scrolling and navigation
+function handleAnchorNavigation() {
+    // Get the anchor from the URL
+    const hash = window.location.hash;
+    
+    if (hash) {
+        // Wait a bit for the page to fully load, then scroll to the element
+        setTimeout(function() {
+            const element = document.querySelector(hash);
+            if (element) {
+                element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        }, 100);
+    }
+}
+
+// Call on page load
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', handleAnchorNavigation);
+} else {
+    handleAnchorNavigation();
+}
+
+// Also handle hashchange events for when user clicks anchor links
+window.addEventListener('hashchange', function() {
+    const hash = window.location.hash;
+    if (hash) {
+        const element = document.querySelector(hash);
+        if (element) {
+            setTimeout(function() {
+                element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }, 100);
+        }
+    }
+});
+
 // Form handling
 const conversationForm = document.querySelector('#conversation-form');
 if (conversationForm) {
