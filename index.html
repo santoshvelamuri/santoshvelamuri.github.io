@@ -45,7 +45,7 @@
             <h1>Strategy · Architecture · AI</h1>
             <p class="hero-subtitle">We help organizations translate business strategy into clear architecture decisions, delivery roadmaps, and AI-driven process automation.</p>
             <div class="hero-buttons">
-                <a href="#start-conversation" class="btn btn-primary">Start a Conversation</a>
+                <button id="openConversationBtn" class="btn btn-primary">Start a Conversation</button>
                 <a href="#how-we-work" class="btn btn-secondary">See how we work</a>
             </div>
         </div>
@@ -243,27 +243,33 @@
         <div class="container">
             <h2>Let's talk about your strategy, architecture, or AI challenges.</h2>
             <p>No sales pitch—just a focused conversation about your context and next steps.</p>
-            <a href="#start-conversation" class="btn btn-large">Book a Conversation</a>
+            <a href="index.html#about" class="btn btn-large">Learn More</a>
+            <button id="openConversationBtn2" class="btn btn-large">Book a Conversation</button>
         </div>
     </section>
 
     <!-- Start a Conversation Section -->
-    <section class="start-conversation" id="start-conversation">
+    <!-- Conversation Modal -->
+    <div id="conversationModal" class="modal">
+        <div class="modal-content">
+            <button class="modal-close" aria-label="Close modal">&times;</button>
+            <div class="modal-form-container">
                 <iframe
-            id="JotFormIFrame-260251431877053"
-            title="Contact"
-            onload="window.parent.scrollTo(0,0)"
-            allowtransparency="true"
-            allow="fullscreen;"
-            src="https://form.jotform.com/260251431877053"
-            frameborder="0"
-            style="min-width:100%;width:100%;height:900px;border:none;"
-            scrolling="yes"
-        >
-        </iframe>
-        <script src='https://cdn.jotfor.ms/s/umd/latest/for-form-embed-handler.js'></script>
-        <script>window.jotformEmbedHandler("iframe[id='JotFormIFrame-260251431877053']", "https://form.jotform.com/")</script>
-    </section>
+                    id="JotFormIFrame-260251431877053"
+                    title="Contact"
+                    allowtransparency="true"
+                    allow="fullscreen;"
+                    src="https://form.jotform.com/260251431877053"
+                    frameborder="0"
+                    style="width:100%;height:650px;border:none;"
+                    scrolling="yes"
+                >
+                </iframe>
+                <script src='https://cdn.jotfor.ms/s/umd/latest/for-form-embed-handler.js'></script>
+                <script>window.jotformEmbedHandler("iframe[id='JotFormIFrame-260251431877053']", "https://form.jotform.com/")</script>
+            </div>
+        </div>
+    </div>
 
     <!-- Footer -->
     <footer class="footer">

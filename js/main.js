@@ -189,6 +189,52 @@ function setupMobileMenu() {
 
 setupMobileMenu();
 
+// Modal functionality
+document.addEventListener('DOMContentLoaded', function() {
+    const modal = document.getElementById('conversationModal');
+    const openBtns = [
+        document.getElementById('openConversationBtn'),
+        document.getElementById('openConversationBtn2'),
+        document.getElementById('openConversationBtnHW'),
+        document.getElementById('openConversationBtnAI')
+    ];
+    const closeBtn = document.querySelector('.modal-close');
+
+    // Open modal
+    openBtns.forEach(btn => {
+        if (btn) {
+            btn.addEventListener('click', function() {
+                modal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            });
+        }
+    });
+
+    // Close modal
+    if (closeBtn) {
+        closeBtn.addEventListener('click', function() {
+            modal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        });
+    }
+
+    // Close modal when clicking outside
+    modal.addEventListener('click', function(e) {
+        if (e.target === modal) {
+            modal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+    });
+
+    // Close modal on Escape key
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && modal.classList.contains('active')) {
+            modal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+    });
+});
+
 // Scroll event for navbar shadow and scroll-to-top button
 window.addEventListener('scroll', function () {
     const navbar = document.querySelector('.navbar');

@@ -372,9 +372,31 @@
         <div class="container">
             <h2>Explore AI agents aligned to your business architecture</h2>
             <p>If you are exploring how AI agents could support your capabilities or value streams, we can help assess opportunities, define designs, and embed them into execution.</p>
-            <a href="index.html#start-conversation" class="btn btn-primary">Start a Conversation</a>
+            <button id="openConversationBtnAI" class="btn btn-primary">Start a Conversation</button>
         </div>
     </section>
+
+    <!-- Conversation Modal -->
+    <div id="conversationModal" class="modal">
+        <div class="modal-content">
+            <button class="modal-close" aria-label="Close modal">&times;</button>
+            <div class="modal-form-container">
+                <iframe
+                    id="JotFormIFrame-260251431877053"
+                    title="Contact"
+                    allowtransparency="true"
+                    allow="fullscreen;"
+                    src="https://form.jotform.com/260251431877053"
+                    frameborder="0"
+                    style="width:100%;height:650px;border:none;"
+                    scrolling="yes"
+                >
+                </iframe>
+                <script src='https://cdn.jotfor.ms/s/umd/latest/for-form-embed-handler.js'></script>
+                <script>window.jotformEmbedHandler("iframe[id='JotFormIFrame-260251431877053']", "https://form.jotform.com/")</script>
+            </div>
+        </div>
+    </div>
 
     <!-- Footer -->
     <footer class="footer">
