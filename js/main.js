@@ -4,13 +4,19 @@ function handleAnchorNavigation() {
     const hash = window.location.hash;
     
     if (hash) {
-        // Wait a bit for the page to fully load, then scroll to the element
+        // Wait longer for the page to fully load and animations to start
         setTimeout(function() {
             const element = document.querySelector(hash);
             if (element) {
-                element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                // Temporarily disable smooth scroll on html, then scroll, then re-enable
+                const htmlElement = document.documentElement;
+                htmlElement.style.scrollBehavior = 'auto';
+                element.scrollIntoView({ block: 'start' });
+                // Force a reflow to prevent jump
+                void htmlElement.offsetHeight;
+                htmlElement.style.scrollBehavior = 'smooth';
             }
-        }, 100);
+        }, 500);
     }
 }
 
@@ -25,12 +31,16 @@ if (document.readyState === 'loading') {
 window.addEventListener('hashchange', function() {
     const hash = window.location.hash;
     if (hash) {
-        const element = document.querySelector(hash);
-        if (element) {
-            setTimeout(function() {
-                element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            }, 100);
-        }
+        setTimeout(function() {
+            const element = document.querySelector(hash);
+            if (element) {
+                const htmlElement = document.documentElement;
+                htmlElement.style.scrollBehavior = 'auto';
+                element.scrollIntoView({ block: 'start' });
+                void htmlElement.offsetHeight;
+                htmlElement.style.scrollBehavior = 'smooth';
+            }
+        }, 100);
     }
 });
 
