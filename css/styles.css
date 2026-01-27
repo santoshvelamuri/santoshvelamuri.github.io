@@ -1041,6 +1041,68 @@ body {
     }
 }
 
+/* Introduction Section */
+.intro-section {
+    padding: 80px 0;
+    background: linear-gradient(135deg, #f9f7f4 0%, #ffffff 100%);
+}
+
+.intro-content {
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.intro-main {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #1a1f3a;
+    line-height: 1.8;
+    margin-bottom: 2rem;
+    letter-spacing: -0.5px;
+}
+
+.intro-divider {
+    width: 60px;
+    height: 4px;
+    background: linear-gradient(90deg, #b8860b 0%, #d4a574 100%);
+    margin: 0 auto 2.5rem;
+    border-radius: 2px;
+}
+
+.intro-secondary {
+    font-size: 1.05rem;
+    color: #555;
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+}
+
+.intro-tertiary {
+    font-size: 1rem;
+    color: #777;
+    line-height: 1.6;
+    margin-bottom: 0;
+    font-style: italic;
+}
+
+@media (max-width: 768px) {
+    .intro-section {
+        padding: 60px 0;
+    }
+    
+    .intro-main {
+        font-size: 1.25rem;
+    }
+    
+    .intro-secondary {
+        font-size: 0.95rem;
+    }
+    
+    .intro-tertiary {
+        font-size: 0.9rem;
+    }
+}
+
 /* Modal Styles */
 .modal {
     display: none;
