@@ -502,6 +502,35 @@ body {
     font-style: italic;
 }
 
+/* Industry Expertise */
+.industry-expertise {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.industry-item {
+    padding: 1.5rem;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    border-left: 4px solid #b8860b;
+}
+
+.industry-item h4 {
+    font-size: 1.2rem;
+    color: #1a1f3a;
+    margin-bottom: 0.75rem;
+    font-weight: 600;
+}
+
+.industry-item p {
+    color: #666;
+    line-height: 1.6;
+    margin: 0;
+}
+
 /* Why Choose Section */
 .why-choose {
     padding: 80px 0;
@@ -942,7 +971,8 @@ body {
     }
 
     .choose-grid,
-    .ai-phases {
+    .ai-phases,
+    .industry-expertise {
         grid-template-columns: 1fr;
     }
 
