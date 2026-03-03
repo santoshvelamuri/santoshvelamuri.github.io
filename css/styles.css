@@ -226,6 +226,300 @@ body {
     margin-top: 1.5rem;
 }
 
+/* Enterprise Framework Highlight */
+.framework-highlight {
+    padding: 88px 0;
+    background: #ffffff;
+    border-top: 1px solid rgba(17, 24, 39, 0.06);
+    border-bottom: 1px solid rgba(17, 24, 39, 0.06);
+}
+
+.industry-section {
+    padding: 112px 0;
+    background: #f7f1e6;
+    border-top: 1px solid rgba(17, 24, 39, 0.05);
+}
+
+.framework-highlight h2 {
+    text-align: center;
+    font-size: clamp(1.6rem, 2.5vw, 2.35rem);
+    color: #111827;
+    margin-bottom: 1rem;
+    white-space: nowrap;
+}
+
+.framework-kicker {
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #b8860b;
+    font-size: 0.82rem;
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+}
+
+.framework-intro {
+    max-width: 920px;
+    margin: 0 auto;
+    text-align: center;
+    font-size: 1.08rem;
+    color: #4b5563;
+    line-height: 1.8;
+}
+
+.framework-positioning {
+    list-style: none;
+    margin: 1.8rem auto 0;
+    max-width: 960px;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 0.8rem;
+}
+
+.framework-positioning li {
+    text-align: center;
+    background: #ffffff;
+    border: 1px solid rgba(26, 31, 58, 0.1);
+    border-radius: 10px;
+    padding: 0.9rem 0.7rem;
+    color: #1f2937;
+    font-weight: 600;
+}
+
+.framework-visual {
+    margin-top: 2rem;
+    display: grid;
+    gap: 1.2rem;
+}
+
+.framework-highlight .framework-flow,
+.framework-highlight .framework-pillars {
+    display: none;
+}
+
+.framework-map-wrap {
+    background: #ffffff;
+    border: 1px solid rgba(26, 31, 58, 0.1);
+    border-radius: 16px;
+    box-shadow: 0 14px 30px rgba(17, 24, 39, 0.08);
+    padding: 0.5rem;
+}
+
+.framework-map {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.framework-map-surface {
+    fill: #f9fafb;
+    stroke: rgba(26, 31, 58, 0.08);
+    stroke-width: 1;
+}
+
+.framework-map-strategy {
+    fill: #1f2a47;
+}
+
+.framework-map-strategy-text {
+    fill: #f9fafb;
+    font-size: 24px;
+    font-weight: 700;
+    font-family: inherit;
+}
+
+.framework-map-line {
+    stroke: rgba(184, 134, 11, 0.6);
+    stroke-width: 2.5;
+}
+
+.framework-map-card {
+    fill: #ffffff;
+    stroke: rgba(26, 31, 58, 0.14);
+    stroke-width: 1.2;
+    transition: all 0.2s ease;
+}
+
+.framework-map-badge {
+    fill: #b8860b;
+}
+
+.framework-map-badge-text {
+    fill: #ffffff;
+    font-size: 15px;
+    font-weight: 700;
+    font-family: inherit;
+}
+
+.framework-map-card-title {
+    fill: #111827;
+    font-size: 18px;
+    font-weight: 700;
+    font-family: inherit;
+}
+
+.framework-map-card-body {
+    fill: #4b5563;
+    font-size: 14px;
+    font-weight: 500;
+    font-family: inherit;
+}
+
+.framework-map-link:hover .framework-map-card,
+.framework-map-link:focus .framework-map-card {
+    stroke: #b8860b;
+    stroke-width: 2;
+    filter: drop-shadow(0 8px 18px rgba(17, 24, 39, 0.12));
+}
+
+.framework-map-link {
+    cursor: pointer;
+}
+
+.framework-flow {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.7rem;
+    flex-wrap: wrap;
+    background: #ffffff;
+    border: 1px solid rgba(26, 31, 58, 0.1);
+    border-radius: 14px;
+    padding: 1.1rem 1rem;
+}
+
+.framework-flow-node {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem 0.85rem;
+    border-radius: 999px;
+    background: #1f2a47;
+    color: #f9fafb;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.framework-flow-arrow {
+    color: #b8860b;
+    font-size: 1rem;
+    font-weight: 700;
+}
+
+.framework-pillars {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 1rem;
+}
+
+.framework-pillar {
+    text-decoration: none;
+    background: #ffffff;
+    border: 1px solid rgba(26, 31, 58, 0.1);
+    border-radius: 12px;
+    padding: 1rem;
+    color: inherit;
+    box-shadow: 0 10px 24px rgba(17, 24, 39, 0.07);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.framework-pillar:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 14px 30px rgba(17, 24, 39, 0.12);
+}
+
+.framework-pillar-num {
+    display: inline-flex;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    align-items: center;
+    justify-content: center;
+    background: #b8860b;
+    color: #ffffff;
+    font-size: 0.78rem;
+    font-weight: 700;
+    margin-bottom: 0.7rem;
+}
+
+.framework-pillar h3 {
+    margin-bottom: 0.35rem;
+    font-size: 1.05rem;
+    color: #111827;
+}
+
+.framework-pillar p {
+    color: #4b5563;
+    line-height: 1.6;
+    font-size: 0.95rem;
+}
+
+.framework-actions {
+    margin-top: 1.6rem;
+    text-align: center;
+}
+
+.framework-position-cards .aoa-card {
+    border-top: 4px solid #b8860b;
+}
+
+.framework-layer-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+}
+
+.framework-layer-card {
+    background: #ffffff;
+    border: 1px solid rgba(26, 31, 58, 0.1);
+    border-radius: 14px;
+    box-shadow: 0 10px 24px rgba(17, 24, 39, 0.07);
+    padding: 1.3rem 1.2rem;
+}
+
+.framework-layer-card .aoa-question-list {
+    max-width: none;
+    margin: 0.45rem 0 0.75rem;
+}
+
+@media (max-width: 1024px) {
+    .framework-positioning {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .framework-pillars {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .framework-layer-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .framework-positioning,
+    .framework-pillars {
+        grid-template-columns: 1fr;
+    }
+
+    .framework-highlight h2 {
+        white-space: normal;
+    }
+
+    .framework-flow {
+        justify-content: flex-start;
+    }
+
+    .framework-map-wrap {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .framework-map {
+        min-width: 980px;
+    }
+}
+
 /* Hero Page */
 .hero-page {
     padding: 60px 0;
@@ -293,7 +587,7 @@ body {
 /* Familiar Challenges Section */
 .familiar-challenges {
     padding: 108px 0;
-    background: linear-gradient(180deg, #fffdfa 0%, #f4efe7 100%);
+    background: #f7f1e6;
     border-top: 1px solid rgba(17, 24, 39, 0.05);
 }
 
@@ -677,6 +971,10 @@ body {
     box-shadow: 0 24px 48px rgba(17, 24, 39, 0.2);
 }
 
+.industry-showcase-standalone {
+    margin-top: 0;
+}
+
 .industry-heading {
     margin-top: 0;
     margin-bottom: 2rem;
@@ -767,7 +1065,7 @@ body {
 /* Why Choose Section */
 .why-choose {
     padding: 124px 0;
-    background: linear-gradient(180deg, #f7f1e6 0%, #f1e8da 100%);
+    background: #f7f1e6;
     border-top: 1px solid rgba(17, 24, 39, 0.05);
 }
 
@@ -873,7 +1171,7 @@ body {
 /* About Section */
 .about {
     padding: 132px 0;
-    background: linear-gradient(180deg, #ffffff 0%, #f8f6f2 100%);
+    background: #ffffff;
     border-top: 1px solid rgba(17, 24, 39, 0.05);
 }
 
