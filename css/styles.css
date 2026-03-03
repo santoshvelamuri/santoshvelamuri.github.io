@@ -2138,16 +2138,40 @@ body {
         width: 100%;
     }
 
+    .nav-services > a {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .nav-services > a::after {
+        transition: transform 0.2s ease;
+    }
+
     .nav-dropdown {
         position: static;
         min-width: 100%;
-        margin-top: 0.5rem;
+        margin-top: 0.35rem;
         opacity: 1;
         visibility: visible;
         transform: none;
         box-shadow: none;
         background: rgba(255, 255, 255, 0.06);
         border: 1px solid rgba(255, 255, 255, 0.1);
+        max-height: 0;
+        overflow: hidden;
+        padding: 0;
+        transition: max-height 0.25s ease, padding 0.2s ease;
+    }
+
+    .nav-services.open .nav-dropdown,
+    .nav-services:focus-within .nav-dropdown {
+        max-height: 320px;
+        padding: 0.35rem 0;
+    }
+
+    .nav-services.open > a::after {
+        transform: rotate(180deg);
     }
 
     .nav-dropdown a {
