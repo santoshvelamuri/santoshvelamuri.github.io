@@ -1972,6 +1972,11 @@ body {
     background: #ffffff;
 }
 
+.aoa-process .aoa-grid-3 {
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    align-items: start;
+}
+
 .aoa-value-grid .aoa-card {
     border-top: 4px solid #b8860b;
 }
@@ -2055,6 +2060,39 @@ body {
     margin: 1.2rem 0 0;
 }
 
+.apm-challenge-layout {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.35rem;
+    align-items: start;
+}
+
+.apm-challenge-group {
+    background: #ffffff;
+    border: 1px solid rgba(26, 31, 58, 0.1);
+    border-radius: 14px;
+    box-shadow: 0 10px 24px rgba(17, 24, 39, 0.07);
+    padding: 1.3rem 1.25rem 1.1rem;
+}
+
+.apm-challenge-group .aoa-question-grid {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+}
+
+.apm-challenge-group .aoa-question-list {
+    margin: 0;
+}
+
+.apm-challenge-group .aoa-question-list li {
+    padding-left: 0.8rem;
+}
+
+.apm-challenge-note {
+    text-align: center;
+    margin-top: 1.45rem;
+}
+
 @media (max-width: 1024px) {
     .aoa-question-grid,
     .aoa-outcome-grid {
@@ -2076,6 +2114,11 @@ body {
     .aoa-framework-item {
         padding: 0;
         border-radius: 0;
+    }
+
+    .apm-challenge-layout {
+        grid-template-columns: 1fr;
+        gap: 1rem;
     }
 
     .aoa-question-grid,
