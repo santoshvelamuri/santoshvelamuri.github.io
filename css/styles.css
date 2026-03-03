@@ -377,6 +377,50 @@ body {
     cursor: pointer;
 }
 
+.framework-mobile-grid {
+    display: none;
+}
+
+.framework-mobile-strategy {
+    background: #b8860b;
+    color: #ffffff;
+    text-align: center;
+    font-weight: 700;
+    border-radius: 999px;
+    padding: 0.55rem 1rem;
+    margin: 0 auto 0.4rem;
+    width: fit-content;
+    min-width: 140px;
+}
+
+.framework-mobile-card {
+    display: block;
+    text-decoration: none;
+    background: #ffffff;
+    border: 1px solid rgba(26, 31, 58, 0.12);
+    border-radius: 12px;
+    padding: 0.9rem 0.9rem 0.85rem;
+    box-shadow: 0 8px 18px rgba(17, 24, 39, 0.08);
+}
+
+.framework-mobile-card h3 {
+    color: #111827;
+    font-size: 1rem;
+    line-height: 1.35;
+    margin-bottom: 0.3rem;
+}
+
+.framework-mobile-card p {
+    color: #4b5563;
+    font-size: 0.92rem;
+    line-height: 1.55;
+}
+
+.framework-mobile-card:hover,
+.framework-mobile-card:focus {
+    border-color: rgba(184, 134, 11, 0.6);
+}
+
 .framework-flow {
     display: flex;
     justify-content: center;
@@ -697,12 +741,12 @@ body {
     }
 
     .framework-map-wrap {
-        overflow-x: auto;
-        -webkit-overflow-scrolling: touch;
+        display: none;
     }
 
-    .framework-map {
-        min-width: 980px;
+    .framework-mobile-grid {
+        display: grid;
+        gap: 0.75rem;
     }
 
     .framework-circle-diagram {
@@ -2582,127 +2626,6 @@ body {
     box-shadow: 0 20px 36px rgba(17, 24, 39, 0.12);
 }
 
-.aoa-priority-quadrant {
-    position: relative;
-    margin-top: 0.45rem;
-    background: #ffffff;
-    border: 1px solid rgba(26, 31, 58, 0.12);
-    border-radius: 16px;
-    box-shadow: 0 14px 32px rgba(17, 24, 39, 0.08);
-    padding: 1.35rem;
-}
-
-.aoa-priority-quadrant::before {
-    content: "";
-    position: absolute;
-    left: 50%;
-    top: -34px;
-    transform: translateX(-50%);
-    width: 5px;
-    height: 36px;
-    border-radius: 999px;
-    background: linear-gradient(180deg, rgba(22, 31, 58, 0.95) 0%, rgba(184, 134, 11, 0.9) 100%);
-}
-
-.aoa-priority-quadrant::after {
-    content: "";
-    position: absolute;
-    left: 50%;
-    top: -45px;
-    transform: translateX(-50%);
-    width: 16px;
-    height: 16px;
-    border-radius: 50%;
-    background: #1a1f3a;
-    box-shadow: 0 0 0 7px rgba(184, 134, 11, 0.34);
-}
-
-.aoa-quadrant-kicker {
-    font-size: 0.82rem;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    color: #8b5e00;
-    font-weight: 700;
-    margin-bottom: 0.95rem;
-}
-
-.aoa-quadrant-grid {
-    position: relative;
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    border: 3px solid rgba(26, 31, 58, 0.45);
-    border-radius: 12px;
-    overflow: hidden;
-}
-
-.aoa-quadrant-grid::before,
-.aoa-quadrant-grid::after {
-    content: "";
-    position: absolute;
-    background: rgba(26, 31, 58, 0.55);
-    z-index: 2;
-}
-
-.aoa-quadrant-grid::before {
-    top: 0;
-    bottom: 0;
-    left: 50%;
-    width: 3px;
-    transform: translateX(-50%);
-}
-
-.aoa-quadrant-grid::after {
-    left: 0;
-    right: 0;
-    top: 50%;
-    height: 3px;
-    transform: translateY(-50%);
-}
-
-.aoa-quadrant-cell {
-    position: relative;
-    padding: 1.05rem 1rem 0.95rem;
-    min-height: 145px;
-    background: #ffffff;
-    z-index: 1;
-}
-
-.aoa-quadrant-cell:nth-child(odd) {
-    border-right: 2px solid rgba(26, 31, 58, 0.28);
-}
-
-.aoa-quadrant-cell:nth-child(-n + 2) {
-    border-bottom: 2px solid rgba(26, 31, 58, 0.28);
-}
-
-.aoa-q-quickwins {
-    background: linear-gradient(160deg, #f4fbf7 0%, #eef9f2 100%);
-}
-
-.aoa-q-strategic {
-    background: linear-gradient(160deg, #f6f7ff 0%, #f0f3ff 100%);
-}
-
-.aoa-q-foundation {
-    background: linear-gradient(160deg, #fff8ee 0%, #fef4e6 100%);
-}
-
-.aoa-q-review {
-    background: linear-gradient(160deg, #fafafc 0%, #f3f4f8 100%);
-}
-
-.aoa-quadrant-cell h3 {
-    margin-bottom: 0.45rem;
-    font-size: 1.04rem;
-    color: #111827;
-}
-
-.aoa-quadrant-cell p {
-    margin: 0;
-    color: #4b5563;
-    line-height: 1.62;
-}
-
 .aoa-process .aoa-card {
     background: transparent;
     border: none;
@@ -2787,42 +2710,6 @@ body {
     .aoa-question-grid,
     .aoa-outcome-grid {
         grid-template-columns: 1fr;
-    }
-
-    .aoa-priority-quadrant {
-        padding: 1rem;
-        margin-top: 0.35rem;
-    }
-
-    .aoa-priority-quadrant::before {
-        top: -24px;
-        height: 24px;
-        width: 4px;
-    }
-
-    .aoa-priority-quadrant::after {
-        top: -32px;
-        width: 13px;
-        height: 13px;
-        box-shadow: 0 0 0 6px rgba(184, 134, 11, 0.3);
-    }
-
-    .aoa-quadrant-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .aoa-quadrant-grid::before,
-    .aoa-quadrant-grid::after {
-        display: none;
-    }
-
-    .aoa-quadrant-cell {
-        border-right: none;
-        border-bottom: 2px solid rgba(26, 31, 58, 0.3);
-    }
-
-    .aoa-quadrant-cell:last-child {
-        border-bottom: none;
     }
 
     .aoa-value-scroll {
