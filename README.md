@@ -66,6 +66,7 @@ The contact form sends emails to the configured `RECIPIENT_EMAIL` address with:
 
 ```
 ├── index.html           # Main homepage
+├── services.html        # What we do / services page
 ├── how-we-work.html    # How we work page
 ├── css/
 │   └── styles.css      # Stylesheet
