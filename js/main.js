@@ -178,16 +178,54 @@ document.querySelectorAll('section').forEach(section => {
     observer.observe(section);
 });
 
-// Mobile menu toggle (if you add a hamburger menu later)
+// Mobile menu toggle
 function setupMobileMenu() {
     const menuToggle = document.querySelector('.menu-toggle');
     const navMenu = document.querySelector('.nav-menu');
+    const navOverlay = document.querySelector('.nav-overlay');
     const servicesItems = document.querySelectorAll('.nav-services');
     const mobileQuery = window.matchMedia('(max-width: 768px)');
 
+    function closeMobileMenu() {
+        menuToggle && menuToggle.classList.remove('active');
+        navMenu && navMenu.classList.remove('active');
+        navOverlay && navOverlay.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+
+    function openMobileMenu() {
+        menuToggle && menuToggle.classList.add('active');
+        navMenu && navMenu.classList.add('active');
+        navOverlay && navOverlay.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+
     if (menuToggle) {
         menuToggle.addEventListener('click', function () {
-            navMenu.classList.toggle('active');
+            if (navMenu.classList.contains('active')) {
+                closeMobileMenu();
+            } else {
+                openMobileMenu();
+            }
+        });
+    }
+
+    // Close on overlay click
+    if (navOverlay) {
+        navOverlay.addEventListener('click', closeMobileMenu);
+    }
+
+    // Close menu when a non-dropdown link is clicked
+    if (navMenu) {
+        navMenu.querySelectorAll('a').forEach(function(link) {
+            link.addEventListener('click', function () {
+                if (!mobileQuery.matches) return;
+                // Don't close if it's the Services dropdown trigger
+                if (link.closest('.nav-services') && link === link.closest('.nav-services').querySelector(':scope > a')) {
+                    return;
+                }
+                closeMobileMenu();
+            });
         });
     }
 
@@ -198,14 +236,10 @@ function setupMobileMenu() {
 
         servicesItems.forEach(item => {
             const serviceLink = item.querySelector('a');
-            if (!serviceLink) {
-                return;
-            }
+            if (!serviceLink) return;
 
             serviceLink.addEventListener('click', function (event) {
-                if (!mobileQuery.matches) {
-                    return;
-                }
+                if (!mobileQuery.matches) return;
 
                 const isOpen = item.classList.contains('open');
                 if (!isOpen) {
@@ -217,10 +251,7 @@ function setupMobileMenu() {
         });
 
         document.addEventListener('click', function (event) {
-            if (!mobileQuery.matches) {
-                return;
-            }
-
+            if (!mobileQuery.matches) return;
             const clickedInsideNavServices = event.target.closest('.nav-services');
             if (!clickedInsideNavServices) {
                 closeAllServiceMenus();
@@ -229,6 +260,7 @@ function setupMobileMenu() {
 
         mobileQuery.addEventListener('change', function (event) {
             if (!event.matches) {
+                closeMobileMenu();
                 closeAllServiceMenus();
             }
         });
