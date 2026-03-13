@@ -128,8 +128,8 @@ body.home-page .nav-dropdown a:hover{color:var(--blue);background:rgba(37,99,235
   color:var(--blue);
   border:1px solid rgba(37,99,235,0.20);
   background:rgba(37,99,235,0.06);
-  padding:5px 14px 5px 8px;border-radius:100px;
-  margin-bottom:32px;
+  padding:6px 16px 6px 10px;border-radius:100px;
+  margin-bottom:48px;
   opacity:0;animation:fadeUp .7s ease .1s forwards;
 }
 .hero-pill-dot{
@@ -141,11 +141,11 @@ body.home-page .nav-dropdown a:hover{color:var(--blue);background:rgba(37,99,235
 .hp-hero-h1{
   font-family:var(--sans);
   font-size:clamp(48px,6.5vw,88px);
-  font-weight:700;line-height:1.0;
+  font-weight:700;line-height:1.08;
   letter-spacing:-.03em;
   color:var(--text);
   max-width:900px;
-  margin-bottom:24px;
+  margin-bottom:48px;
   opacity:0;animation:fadeUp .8s ease .2s forwards;
 }
 .hp-hero-h1 .grad{
@@ -158,29 +158,32 @@ body.home-page .nav-dropdown a:hover{color:var(--blue);background:rgba(37,99,235
   opacity:0;animation:fadeUp .8s ease .3s forwards;
 }
 .hero-btns{
-  display:flex;gap:12px;justify-content:center;
+  display:flex;gap:16px;justify-content:center;
   opacity:0;animation:fadeUp .8s ease .4s forwards;
 }
 .btn-primary-hp{
-  font-family:var(--sans);font-size:13px;font-weight:600;letter-spacing:.03em;
-  padding:13px 28px;background:var(--blue);color:#fff;
-  border:none;border-radius:7px;cursor:pointer;text-decoration:none;
-  transition:background .2s,transform .1s;display:inline-block;
+  font-family:var(--sans);font-size:14px;font-weight:600;letter-spacing:.02em;
+  padding:15px 32px;background:var(--blue);color:#fff;
+  border:none;border-radius:8px;cursor:pointer;text-decoration:none;
+  transition:background .2s,transform .15s,box-shadow .2s;display:inline-block;
+  box-shadow:0 2px 8px rgba(37,99,235,0.25);
 }
-.btn-primary-hp:hover{background:#3a7de8;transform:translateY(-1px)}
+.btn-primary-hp:hover{background:#3a7de8;transform:translateY(-2px);box-shadow:0 6px 20px rgba(37,99,235,0.3)}
 .btn-ghost{
-  font-family:var(--sans);font-size:13px;font-weight:500;letter-spacing:.03em;
-  padding:13px 28px;background:transparent;color:var(--text2);
-  border:1px solid var(--border2);border-radius:7px;cursor:pointer;text-decoration:none;
+  font-family:var(--sans);font-size:14px;font-weight:500;letter-spacing:.02em;
+  padding:15px 32px;background:transparent;color:var(--text2);
+  border:1px solid var(--border2);border-radius:8px;cursor:pointer;text-decoration:none;
   transition:all .2s;display:inline-block;
 }
-.btn-ghost:hover{color:var(--text);border-color:rgba(0,0,0,.25)}
+.btn-ghost:hover{color:var(--text);border-color:rgba(0,0,0,.25);transform:translateY(-1px)}
 .trust-strip{
-  margin-top:72px;
+  margin-top:80px;
+  padding-top:40px;
+  border-top:1px solid var(--border);
   opacity:0;animation:fadeUp .8s ease .55s forwards;
 }
-.trust-label{font-size:11px;color:var(--text3);letter-spacing:.08em;text-transform:uppercase;margin-bottom:20px;font-weight:400}
-.trust-logos{display:flex;gap:36px;align-items:center;justify-content:center;flex-wrap:wrap}
+.trust-label{font-size:10px;color:var(--text3);letter-spacing:.12em;text-transform:uppercase;margin-bottom:24px;font-weight:500}
+.trust-logos{display:flex;gap:40px;align-items:center;justify-content:center;flex-wrap:wrap}
 .trust-logo{
   font-family:var(--sans);font-size:13px;font-weight:600;
   color:var(--text3);letter-spacing:.04em;
@@ -213,6 +216,7 @@ body.home-page .nav-dropdown a:hover{color:var(--blue);background:rgba(37,99,235
   background:var(--bg2);padding:36px 32px;
   position:relative;overflow:hidden;
   transition:background .25s;cursor:pointer;
+  text-decoration:none;color:inherit;display:block;
 }
 .bento-card::before{
   content:'';position:absolute;inset:0;
@@ -450,7 +454,10 @@ body.home-page .footer{
 body.home-page .footer .container{
   display:flex;align-items:center;justify-content:space-between;width:100%;max-width:none;padding:0;
 }
-.hp-footer-logo{font-family:var(--sans);font-size:15px;font-weight:700;color:var(--text)}
+.hp-footer-logo{font-family:var(--sans);font-size:20px;font-weight:700;letter-spacing:-.02em;
+  background:linear-gradient(135deg, var(--text) 40%, var(--blue) 100%);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+}
 .hp-footer-links{display:flex;gap:24px}
 .hp-footer-links a{font-size:12px;color:var(--text3);text-decoration:none;transition:color .2s}
 .hp-footer-links a:hover{color:var(--text2)}
@@ -549,11 +556,9 @@ body.home-page .footer .container{
     <span class="grad">Faster execution.</span>
   </h1>
 
-  <p class="hero-sub">We help enterprises align strategy, applications, governance, and AI — with fixed-scope advisory blueprints that deliver measurable outcomes, not open-ended retainers.</p>
-
   <div class="hero-btns">
     <button id="openConversationBtn" class="btn-primary-hp">Start a conversation</button>
-    <a href="#framework" class="btn-ghost">Explore the framework →</a>
+    <a href="#services" class="btn-ghost">Explore our blueprints →</a>
   </div>
 
   <div class="trust-strip">
@@ -568,110 +573,6 @@ body.home-page .footer .container{
       <span class="trust-logo">High-Tech</span>
       <span class="trust-logo" style="color:var(--text3)">·</span>
       <span class="trust-logo">Netherlands · B.V.</span>
-    </div>
-  </div>
-</section>
-
-<!-- SERVICES / BENTO -->
-<section id="services" class="hp-section" style="border-top:1px solid var(--border)">
-  <div class="s-head">
-    <div class="s-eyebrow r">Advisory Blueprints</div>
-    <h2 class="s-h2 r">Four blueprints. <span class="g">One framework.</span></h2>
-    <p class="s-sub r1">Fixed-scope advisory engagements, each built to deliver one clear, actionable output. Strategy-aligned, governance-structured, portfolio-disciplined.</p>
-  </div>
-  <div class="bento r2">
-    <div class="bento-card">
-      <div class="bc-tag">Structure</div>
-      <div class="bc-num">Blueprint 01</div>
-      <div class="bc-title">Enterprise Capability Blueprint</div>
-      <div class="bc-body">Define the business capability structure that aligns your organization to strategy. Establish a shared language across leadership and delivery teams.</div>
-      <span class="bc-arrow">→</span>
-      <div class="bc-glow" style="background:rgba(37,99,235,.12)"></div>
-    </div>
-    <div class="bento-card">
-      <div class="bc-tag v">Portfolio</div>
-      <div class="bc-num">Blueprint 02</div>
-      <div class="bc-title">Application Portfolio Management Blueprint</div>
-      <div class="bc-body">Assess the health of your application landscape. Prioritize modernization, rationalization, and investment decisions with clarity.</div>
-      <span class="bc-arrow">→</span>
-      <div class="bc-glow" style="background:rgba(124,58,237,.12)"></div>
-    </div>
-    <div class="bento-card">
-      <div class="bc-tag t">Governance</div>
-      <div class="bc-num">Blueprint 03</div>
-      <div class="bc-title">Architecture Governance Blueprint</div>
-      <div class="bc-body">Establish decision rights, review cadences, and guardrails that keep architecture decisions consistent, traceable, and aligned to strategy.</div>
-      <span class="bc-arrow">→</span>
-      <div class="bc-glow" style="background:rgba(13,148,136,.12)"></div>
-    </div>
-    <div class="bento-card">
-      <div class="bc-tag a">Innovation</div>
-      <div class="bc-num">Blueprint 04</div>
-      <div class="bc-title">AI Opportunity Blueprint</div>
-      <div class="bc-body">Identify where AI creates measurable value in your context. Build a prioritized roadmap grounded in your actual capabilities and risk appetite.</div>
-      <span class="bc-arrow">→</span>
-      <div class="bc-glow" style="background:rgba(217,119,6,.12)"></div>
-    </div>
-  </div>
-</section>
-
-<!-- FRAMEWORK -->
-<section id="framework" class="hp-section fw-section">
-  <div class="s-head">
-    <div class="s-eyebrow r">TRULY Enterprise Architecture Transformation Framework™</div>
-    <h2 class="s-h2 r">Strategy anchors <span class="g">everything.</span></h2>
-    <p class="s-sub r1" style="max-width:none">Four advisory layers, each connected. Structure → Portfolio → Governance → Innovation. Every layer feeds the next.</p>
-  </div>
-  <div class="fw-layout r2">
-    <div class="fw-left">
-      <div>
-        <div class="fw-left-title">Foundation</div>
-        <div class="fw-left-word">Strategy</div>
-        <div class="fw-left-desc">Strategy isn't one of the four layers — it's what all four layers serve. Every blueprint is anchored to the strategic intent of your organization.</div>
-      </div>
-      <div style="margin-top:24px">
-        <div style="font-size:10px;color:var(--text3);letter-spacing:.08em;text-transform:uppercase;margin-bottom:8px">Outcomes</div>
-        <div style="display:flex;flex-direction:column;gap:4px">
-          <div style="font-size:12px;color:var(--text2)">→ Aligned capabilities</div>
-          <div style="font-size:12px;color:var(--text2)">→ Clear portfolio decisions</div>
-          <div style="font-size:12px;color:var(--text2)">→ Governed architecture</div>
-          <div style="font-size:12px;color:var(--text2)">→ Prioritized AI roadmap</div>
-        </div>
-      </div>
-    </div>
-    <div class="fw-right">
-      <div class="fw-cards">
-        <div class="fw-card">
-          <div class="fw-layer">Structure</div>
-          <div class="fw-n">01</div>
-          <div class="fw-title">Enterprise Capability Blueprint</div>
-          <div class="fw-body">Define capability structure aligned to strategy.</div>
-        </div>
-        <div class="fw-card">
-          <div class="fw-layer">Portfolio</div>
-          <div class="fw-n">02</div>
-          <div class="fw-title">Application Portfolio Blueprint</div>
-          <div class="fw-body">Assess health, prioritize modernization actions.</div>
-        </div>
-        <div class="fw-card">
-          <div class="fw-layer">Governance</div>
-          <div class="fw-n">03</div>
-          <div class="fw-title">Architecture Governance Blueprint</div>
-          <div class="fw-body">Decision rights, guardrails, architecture controls.</div>
-        </div>
-        <div class="fw-card" style="border-right:none">
-          <div class="fw-layer">Innovation</div>
-          <div class="fw-n">04</div>
-          <div class="fw-title">AI Opportunity Blueprint</div>
-          <div class="fw-body">High-value AI priorities and roadmap.</div>
-        </div>
-      </div>
-      <div class="fw-pillars">
-        <div class="fw-pill"><div class="fw-pill-dot"></div><div class="fw-pill-text">Strategy-aligned</div></div>
-        <div class="fw-pill"><div class="fw-pill-dot"></div><div class="fw-pill-text">Capability-driven</div></div>
-        <div class="fw-pill"><div class="fw-pill-dot" style="background:var(--violet)"></div><div class="fw-pill-text">Governance-structured</div></div>
-        <div class="fw-pill" style="border-right:none"><div class="fw-pill-dot" style="background:var(--teal)"></div><div class="fw-pill-text">Portfolio-disciplined</div></div>
-      </div>
     </div>
   </div>
 </section>
@@ -705,21 +606,52 @@ body.home-page .footer .container{
     <div class="prob">
       <div class="prob-line"></div>
       <div class="prob-num">04</div>
-      <div class="prob-title">Delivery teams struggle with dependencies</div>
-      <div class="prob-body">Competing demands slow what should be simple decisions. Accountability gaps grow as interdependencies multiply.</div>
-    </div>
-    <div class="prob">
-      <div class="prob-line"></div>
-      <div class="prob-num">05</div>
       <div class="prob-title">AI opportunities feel fragmented or risky</div>
       <div class="prob-body">High potential with no clear activation path. Every team has a different definition of what AI should actually do.</div>
     </div>
-    <div class="prob">
-      <div class="prob-line"></div>
-      <div class="prob-num">06</div>
-      <div class="prob-title">Measurement is unclear, outcomes hard to track</div>
-      <div class="prob-body">Effort is visible. Results remain elusive. Without clear metrics, it's impossible to know what's actually working.</div>
-    </div>
+  </div>
+</section>
+
+<!-- SERVICES / BENTO -->
+<section id="services" class="hp-section" style="border-top:1px solid var(--border)">
+  <div class="s-head">
+    <div class="s-eyebrow r">Advisory Blueprints</div>
+    <h2 class="s-h2 r">Four blueprints. <span class="g">One framework.</span></h2>
+    <p class="s-sub r1">Fixed-scope advisory engagements, each built to deliver one clear, actionable output. Strategy-aligned, governance-structured, portfolio-disciplined.</p>
+  </div>
+  <div class="bento r2">
+    <a href="business-capability-architecture-accelerator.html" class="bento-card">
+      <div class="bc-tag">Structure</div>
+      <div class="bc-num">Blueprint 01</div>
+      <div class="bc-title">Enterprise Capability Blueprint</div>
+      <div class="bc-body">Define the business capability structure that aligns your organization to strategy. Establish a shared language across leadership and delivery teams.</div>
+      <span class="bc-arrow">→</span>
+      <div class="bc-glow" style="background:rgba(37,99,235,.12)"></div>
+    </a>
+    <a href="application-portfolio-management-blueprint.html" class="bento-card">
+      <div class="bc-tag v">Portfolio</div>
+      <div class="bc-num">Blueprint 02</div>
+      <div class="bc-title">Application Portfolio Management Blueprint</div>
+      <div class="bc-body">Assess the health of your application landscape. Prioritize modernization, rationalization, and investment decisions with clarity.</div>
+      <span class="bc-arrow">→</span>
+      <div class="bc-glow" style="background:rgba(124,58,237,.12)"></div>
+    </a>
+    <a href="architecture-governance-blueprint.html" class="bento-card">
+      <div class="bc-tag t">Governance</div>
+      <div class="bc-num">Blueprint 03</div>
+      <div class="bc-title">Architecture Governance Blueprint</div>
+      <div class="bc-body">Establish decision rights, review cadences, and guardrails that keep architecture decisions consistent, traceable, and aligned to strategy.</div>
+      <span class="bc-arrow">→</span>
+      <div class="bc-glow" style="background:rgba(13,148,136,.12)"></div>
+    </a>
+    <a href="ai-opportunity-assessment.html" class="bento-card">
+      <div class="bc-tag a">Innovation</div>
+      <div class="bc-num">Blueprint 04</div>
+      <div class="bc-title">AI Opportunity Blueprint</div>
+      <div class="bc-body">Identify where AI creates measurable value in your context. Build a prioritized roadmap grounded in your actual capabilities and risk appetite.</div>
+      <span class="bc-arrow">→</span>
+      <div class="bc-glow" style="background:rgba(217,119,6,.12)"></div>
+    </a>
   </div>
 </section>
 
