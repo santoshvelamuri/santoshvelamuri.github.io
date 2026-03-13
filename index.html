@@ -225,6 +225,14 @@ body.home-page .nav-dropdown a:hover{color:var(--blue);background:rgba(37,99,235
 }
 .bento-card:hover{background:var(--bg3)}
 .bento-card:hover::before{opacity:1}
+.bc-icon{
+  width:40px;height:40px;border-radius:10px;
+  display:flex;align-items:center;justify-content:center;
+  margin-bottom:16px;background:rgba(37,99,235,0.08);
+}
+.bc-icon.v{background:rgba(124,58,237,0.08)}
+.bc-icon.t{background:rgba(13,148,136,0.08)}
+.bc-icon.a{background:rgba(217,119,6,0.08)}
 .bc-num{
   font-family:var(--sans);font-size:11px;font-weight:600;
   letter-spacing:.1em;color:var(--blue);margin-bottom:20px;
@@ -312,6 +320,11 @@ body.home-page .nav-dropdown a:hover{color:var(--blue);background:rgba(37,99,235
 .prob:hover{background:var(--surface)}
 .prob:nth-child(2n){border-right:none}
 .prob:nth-last-child(-n+2){border-bottom:none}
+.prob-icon{
+  width:40px;height:40px;border-radius:10px;
+  display:flex;align-items:center;justify-content:center;
+  margin-bottom:16px;background:rgba(37,99,235,0.08);
+}
 .prob-num{
   font-family:var(--sans);font-size:11px;font-weight:600;
   letter-spacing:.1em;color:var(--text3);margin-bottom:14px;
@@ -364,6 +377,11 @@ body.home-page .nav-dropdown a:hover{color:var(--blue);background:rgba(37,99,235
 .why-card-hp:nth-child(2n){border-right:none}
 .why-card-hp:nth-last-child(-n+2){border-bottom:none}
 .why-card-hp:hover{background:var(--surface)}
+.why-icon-hp{
+  width:40px;height:40px;border-radius:10px;
+  display:flex;align-items:center;justify-content:center;
+  margin-bottom:16px;background:rgba(37,99,235,0.08);
+}
 .why-num-hp{
   font-family:var(--sans);font-size:11px;font-weight:600;
   color:var(--blue);letter-spacing:.1em;margin-bottom:14px;
@@ -654,25 +672,25 @@ body.home-page .footer .container{
       <div class="prob-line"></div>
       <div class="prob-num">01</div>
       <div class="prob-title">Strategy without execution clarity</div>
-      <div class="prob-body">Vision is set. Teams are capable. Yet progress stalls because the path from intent to action is never fully defined.</div>
+      <div class="prob-body">The path from intent to action is never fully defined. Progress stalls despite capable teams.</div>
     </div>
     <div class="prob">
       <div class="prob-line"></div>
       <div class="prob-num">02</div>
       <div class="prob-title">Architecture decisions delayed or bypassed</div>
-      <div class="prob-body">Work moves forward without governance. Technical debt accumulates quietly until it becomes expensive to undo.</div>
+      <div class="prob-body">Decisions happen without governance. Technical debt builds until it's expensive to fix.</div>
     </div>
     <div class="prob">
       <div class="prob-line"></div>
       <div class="prob-num">03</div>
       <div class="prob-title">Too many initiatives, unclear priorities</div>
-      <div class="prob-body">Portfolio sprawl dilutes focus and burns capacity. Teams work hard — on the wrong things, in the wrong order.</div>
+      <div class="prob-body">Portfolio sprawl burns capacity. Teams work hard on the wrong things, in the wrong order.</div>
     </div>
     <div class="prob">
       <div class="prob-line"></div>
       <div class="prob-num">04</div>
       <div class="prob-title">AI opportunities feel fragmented or risky</div>
-      <div class="prob-body">High potential with no clear activation path. Every team has a different definition of what AI should actually do.</div>
+      <div class="prob-body">High potential, no clear path. Every team defines AI differently and nothing connects.</div>
     </div>
   </div>
 </section>
@@ -687,33 +705,37 @@ body.home-page .footer .container{
   <div class="bento r2">
     <a href="business-capability-architecture-accelerator.html" class="bento-card">
       <div class="bc-tag">Structure</div>
+      <div class="bc-icon"><svg viewBox="0 0 18 18" width="18" height="18" fill="none" stroke="#2563EB" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="3" r="2"/><circle cx="4" cy="13" r="2"/><circle cx="14" cy="13" r="2"/><path d="M9 5v3M7 10l-2 2M11 10l2 2"/></svg></div>
       <div class="bc-num">Blueprint 01</div>
       <div class="bc-title">Enterprise Capability Blueprint</div>
-      <div class="bc-body">Define the business capability structure that aligns your organization to strategy. Establish a shared language across leadership and delivery teams.</div>
+      <div class="bc-body">Define the capability structure that aligns your organization to strategy and establishes a shared language across teams.</div>
       <span class="bc-arrow">→</span>
       <div class="bc-glow" style="background:rgba(37,99,235,.12)"></div>
     </a>
     <a href="application-portfolio-management-blueprint.html" class="bento-card">
       <div class="bc-tag v">Portfolio</div>
+      <div class="bc-icon v"><svg viewBox="0 0 18 18" width="18" height="18" fill="none" stroke="#7C3AED" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="5.5" height="5.5" rx="1"/><rect x="10.5" y="2" width="5.5" height="5.5" rx="1"/><rect x="2" y="10.5" width="5.5" height="5.5" rx="1"/><rect x="10.5" y="10.5" width="5.5" height="5.5" rx="1"/></svg></div>
       <div class="bc-num">Blueprint 02</div>
       <div class="bc-title">Application Portfolio Management Blueprint</div>
-      <div class="bc-body">Assess the health of your application landscape. Prioritize modernization, rationalization, and investment decisions with clarity.</div>
+      <div class="bc-body">Assess your application landscape health. Prioritize modernization and investment decisions with clarity.</div>
       <span class="bc-arrow">→</span>
       <div class="bc-glow" style="background:rgba(124,58,237,.12)"></div>
     </a>
     <a href="architecture-governance-blueprint.html" class="bento-card">
       <div class="bc-tag t">Governance</div>
+      <div class="bc-icon t"><svg viewBox="0 0 18 18" width="18" height="18" fill="none" stroke="#0D9488" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 1.5l6.5 3v4c0 4.5-3 7.5-6.5 9-3.5-1.5-6.5-4.5-6.5-9v-4z"/><path d="M6.5 9l2 2 3.5-4"/></svg></div>
       <div class="bc-num">Blueprint 03</div>
       <div class="bc-title">Architecture Governance Blueprint</div>
-      <div class="bc-body">Establish decision rights, review cadences, and guardrails that keep architecture decisions consistent, traceable, and aligned to strategy.</div>
+      <div class="bc-body">Establish decision rights and guardrails that keep architecture decisions consistent and strategy-aligned.</div>
       <span class="bc-arrow">→</span>
       <div class="bc-glow" style="background:rgba(13,148,136,.12)"></div>
     </a>
     <a href="ai-opportunity-assessment.html" class="bento-card">
       <div class="bc-tag a">Innovation</div>
+      <div class="bc-icon a"><svg viewBox="0 0 18 18" width="18" height="18" fill="none" stroke="#D97706" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 2a5 5 0 013 9v2H6v-2a5 5 0 013-9z"/><path d="M7 15h4"/><circle cx="13" cy="5" r="0.5" fill="#D97706"/><circle cx="15" cy="8" r="0.5" fill="#D97706"/></svg></div>
       <div class="bc-num">Blueprint 04</div>
       <div class="bc-title">AI Opportunity Blueprint</div>
-      <div class="bc-body">Identify where AI creates measurable value in your context. Build a prioritized roadmap grounded in your actual capabilities and risk appetite.</div>
+      <div class="bc-body">Identify where AI creates measurable value and build a prioritized roadmap grounded in your capabilities.</div>
       <span class="bc-arrow">→</span>
       <div class="bc-glow" style="background:rgba(217,119,6,.12)"></div>
     </a>
@@ -768,24 +790,28 @@ body.home-page .footer .container{
   </div>
   <div class="why-grid-hp r2">
     <div class="why-card-hp">
+      <div class="why-icon-hp"><svg viewBox="0 0 18 18" width="18" height="18" fill="none" stroke="#2563EB" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="9" r="6"/><circle cx="9" cy="9" r="2"/><path d="M9 1v2M9 15v2M1 9h2M15 9h2"/></svg></div>
       <div class="why-num-hp">01 — Focus</div>
       <div class="why-title-hp">Strategy-to-execution bridge</div>
-      <div class="why-body-hp">We translate leadership intent into structured, executable plans — closing the gap between what's decided and what gets built.</div>
+      <div class="why-body-hp">Translating leadership intent into structured, executable plans that close the strategy-delivery gap.</div>
     </div>
     <div class="why-card-hp">
+      <div class="why-icon-hp"><svg viewBox="0 0 18 18" width="18" height="18" fill="none" stroke="#2563EB" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 15V5l7-3v13"/><path d="M10 6l5 3v6"/></svg></div>
       <div class="why-num-hp">02 — Rigor</div>
       <div class="why-title-hp">Architecture as decision infrastructure</div>
-      <div class="why-body-hp">Architecture isn't a deliverable — it's a decision-making tool. We bring rigor to choices that others defer or bypass entirely.</div>
+      <div class="why-body-hp">Bringing rigor to choices that others defer or bypass. Architecture is a decision-making tool, not a deliverable.</div>
     </div>
     <div class="why-card-hp">
+      <div class="why-icon-hp"><svg viewBox="0 0 18 18" width="18" height="18" fill="none" stroke="#2563EB" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="9" r="4"/><path d="M15 9h-2"/><path d="M9 3v2"/><path d="M5 9H3"/><path d="M14 5l-2 2"/></svg></div>
       <div class="why-num-hp">03 — Mindset</div>
       <div class="why-title-hp">Pragmatic, delivery-oriented approach</div>
-      <div class="why-body-hp">We work within your constraints, timelines, and team realities. Frameworks serve delivery — not the other way around.</div>
+      <div class="why-body-hp">Working within your constraints and team realities. Frameworks serve delivery — not the other way around.</div>
     </div>
     <div class="why-card-hp">
+      <div class="why-icon-hp"><svg viewBox="0 0 18 18" width="18" height="18" fill="none" stroke="#2563EB" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 2a4.5 4.5 0 014 7.3V12H5V9.3A4.5 4.5 0 019 2z"/><path d="M6 14h6"/><path d="M7 16h4"/><circle cx="14" cy="4" r="0.5" fill="#2563EB"/></svg></div>
       <div class="why-num-hp">04 — AI</div>
       <div class="why-title-hp">AI where it creates real value</div>
-      <div class="why-body-hp">Not every problem needs AI. We identify where it genuinely reduces friction and build a roadmap grounded in your actual context.</div>
+      <div class="why-body-hp">Identifying where AI genuinely reduces friction and building a roadmap grounded in your actual context.</div>
     </div>
   </div>
 </section>
@@ -812,8 +838,7 @@ body.home-page .footer .container{
       </div>
     </div>
     <div>
-      <p class="about-sub-hp r">Truly Services is an independent advisory firm based in the Netherlands. We work with enterprise organizations across complex, regulated, and fast-moving industries to bring strategic clarity to their most difficult alignment challenges.</p>
-      <p class="about-sub-hp r1">Our engagements are structured and fixed-scope by design. We believe focused advisory produces better outcomes than open-ended retainers — and that the best results come from working closely with the teams who carry the work forward.</p>
+      <p class="about-sub-hp r">Truly Services is an independent advisory firm based in the Netherlands, helping enterprises in complex industries close the gap between strategy and execution. Our engagements are fixed-scope by design — focused advisory that delivers better outcomes than open-ended retainers.</p>
       <div class="about-quote-hp r2">The goal is simple: <em>better decisions</em>, faster execution, sustainable outcomes.</div>
     </div>
   </div>
