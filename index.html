@@ -1,308 +1,893 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Truly Services - Business Strategy, Architecture & AI-Enabled Execution</title>
-    <link rel="stylesheet" href="css/styles.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Truly — Strategy · Architecture · AI</title>
+<link rel="stylesheet" href="css/styles.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+/* ── HOME PAGE OVERRIDES ── */
+:root{
+  --bg:#F7F6F3;
+  --bg2:#EFEEE9;
+  --bg3:#E8E6E1;
+  --surface:#DFDDD7;
+  --surface2:#D6D4CE;
+  --border:rgba(0,0,0,0.08);
+  --border2:rgba(0,0,0,0.13);
+  --text:#1A1A2E;
+  --text2:#5C5C72;
+  --text3:#8E8EA0;
+  --blue:#2563EB;
+  --blue2:#1D4FD7;
+  --teal:#0D9488;
+  --violet:#7C3AED;
+  --amber:#D97706;
+  --glow-blue:rgba(37,99,235,0.07);
+  --glow-violet:rgba(124,58,237,0.06);
+  --glow-teal:rgba(13,148,136,0.05);
+  --sans:'Syne',sans-serif;
+  --body:'Inter',sans-serif;
+}
+body.home-page{background:var(--bg);color:var(--text);font-family:var(--body);font-weight:400;line-height:1.65;overflow-x:hidden}
+
+/* ── GLOW ORBS (animated) ── */
+.orb{position:absolute;border-radius:50%;pointer-events:none;filter:blur(90px)}
+.orb-blue{width:700px;height:700px;background:rgba(37,99,235,0.08);top:-150px;left:-150px;animation:orbDrift1 18s ease-in-out infinite}
+.orb-violet{width:550px;height:550px;background:rgba(124,58,237,0.07);top:-100px;right:-100px;animation:orbDrift2 22s ease-in-out infinite}
+.orb-teal{width:450px;height:450px;background:rgba(13,148,136,0.06);bottom:-50px;right:15%;animation:orbDrift3 20s ease-in-out infinite}
+
+@keyframes orbDrift1{
+  0%,100%{transform:translate(0,0) scale(1)}
+  25%{transform:translate(60px,40px) scale(1.05)}
+  50%{transform:translate(30px,80px) scale(0.95)}
+  75%{transform:translate(-40px,30px) scale(1.02)}
+}
+@keyframes orbDrift2{
+  0%,100%{transform:translate(0,0) scale(1)}
+  25%{transform:translate(-50px,50px) scale(0.97)}
+  50%{transform:translate(-80px,20px) scale(1.04)}
+  75%{transform:translate(-20px,-40px) scale(0.98)}
+}
+@keyframes orbDrift3{
+  0%,100%{transform:translate(0,0) scale(1)}
+  33%{transform:translate(40px,-30px) scale(1.06)}
+  66%{transform:translate(-30px,-60px) scale(0.96)}
+}
+
+/* ── ANIMATED MESH BG ── */
+.hero-mesh{
+  position:absolute;inset:0;pointer-events:none;
+  background:
+    radial-gradient(ellipse 50% 40% at 20% 30%, rgba(37,99,235,0.05) 0%, transparent 70%),
+    radial-gradient(ellipse 45% 50% at 80% 25%, rgba(124,58,237,0.04) 0%, transparent 70%),
+    radial-gradient(ellipse 40% 35% at 60% 75%, rgba(13,148,136,0.04) 0%, transparent 70%),
+    radial-gradient(ellipse 55% 45% at 35% 70%, rgba(217,119,6,0.025) 0%, transparent 70%);
+  animation:meshShift 25s ease-in-out infinite;
+}
+@keyframes meshShift{
+  0%,100%{opacity:.7;transform:scale(1) rotate(0deg)}
+  25%{opacity:1;transform:scale(1.03) rotate(0.5deg)}
+  50%{opacity:.8;transform:scale(0.98) rotate(-0.3deg)}
+  75%{opacity:1;transform:scale(1.02) rotate(0.2deg)}
+}
+
+/* ── NAV OVERRIDE FOR HOME ── */
+body.home-page .navbar{
+  background:rgba(247,246,243,0.85);
+  backdrop-filter:blur(20px);
+  -webkit-backdrop-filter:blur(20px);
+  border-bottom:1px solid var(--border);
+  box-shadow:none;
+  padding:0;
+  height:62px;
+}
+body.home-page .navbar .container{height:100%;padding:0 48px}
+body.home-page .nav-logo-hp{font-family:var(--sans);font-size:20px;font-weight:700;letter-spacing:-.02em;gap:0;
+  background:linear-gradient(135deg, var(--text) 40%, var(--blue) 100%);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+}
+body.home-page .nav-menu a{color:var(--text2);font-family:var(--body);font-size:13px;font-weight:400;letter-spacing:.01em}
+body.home-page .nav-menu a:hover,body.home-page .nav-menu a.active{color:var(--text)}
+body.home-page .nav-dropdown{background:var(--surface);border-color:var(--border2)}
+body.home-page .nav-dropdown a{color:var(--text2)}
+body.home-page .nav-dropdown a:hover{color:var(--blue);background:rgba(37,99,235,0.06)}
+
+/* ── HERO ── */
+.hp-hero{
+  min-height:100vh;padding-top:62px;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  position:relative;overflow:hidden;
+  text-align:center;padding-left:48px;padding-right:48px;
+}
+.hero-grid-lines{
+  position:absolute;inset:0;
+  background-image:
+    linear-gradient(rgba(0,0,0,0.04) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(0,0,0,0.04) 1px,transparent 1px);
+  background-size:72px 72px;
+  mask-image:radial-gradient(ellipse 70% 55% at 50% 45%,black 30%,transparent 100%);
+  pointer-events:none;
+  animation:gridFade 4s ease-out forwards;
+}
+@keyframes gridFade{0%{opacity:0}100%{opacity:1}}
+
+/* Noise texture overlay */
+.hp-hero::after{
+  content:'';position:absolute;inset:0;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+  background-size:200px 200px;
+  pointer-events:none;z-index:0;opacity:0.4;
+}
+.hero-pill,.hp-hero-h1,.hero-sub,.hero-btns,.trust-strip{position:relative;z-index:2}
+.hero-pill{
+  display:inline-flex;align-items:center;gap:8px;
+  font-family:var(--body);font-size:12px;font-weight:400;
+  color:var(--blue);
+  border:1px solid rgba(37,99,235,0.20);
+  background:rgba(37,99,235,0.06);
+  padding:5px 14px 5px 8px;border-radius:100px;
+  margin-bottom:32px;
+  opacity:0;animation:fadeUp .7s ease .1s forwards;
+}
+.hero-pill-dot{
+  width:18px;height:18px;border-radius:50%;
+  background:rgba(37,99,235,0.15);
+  display:flex;align-items:center;justify-content:center;
+}
+.hero-pill-dot::after{content:'';width:6px;height:6px;border-radius:50%;background:var(--blue)}
+.hp-hero-h1{
+  font-family:var(--sans);
+  font-size:clamp(48px,6.5vw,88px);
+  font-weight:700;line-height:1.0;
+  letter-spacing:-.03em;
+  color:var(--text);
+  max-width:900px;
+  margin-bottom:24px;
+  opacity:0;animation:fadeUp .8s ease .2s forwards;
+}
+.hp-hero-h1 .grad{
+  background:linear-gradient(135deg,#2563EB 0%,#7C3AED 50%,#0D9488 100%);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+}
+.hero-sub{
+  font-size:17px;color:var(--text2);line-height:1.7;max-width:540px;
+  margin:0 auto 40px;font-weight:400;
+  opacity:0;animation:fadeUp .8s ease .3s forwards;
+}
+.hero-btns{
+  display:flex;gap:12px;justify-content:center;
+  opacity:0;animation:fadeUp .8s ease .4s forwards;
+}
+.btn-primary-hp{
+  font-family:var(--sans);font-size:13px;font-weight:600;letter-spacing:.03em;
+  padding:13px 28px;background:var(--blue);color:#fff;
+  border:none;border-radius:7px;cursor:pointer;text-decoration:none;
+  transition:background .2s,transform .1s;display:inline-block;
+}
+.btn-primary-hp:hover{background:#3a7de8;transform:translateY(-1px)}
+.btn-ghost{
+  font-family:var(--sans);font-size:13px;font-weight:500;letter-spacing:.03em;
+  padding:13px 28px;background:transparent;color:var(--text2);
+  border:1px solid var(--border2);border-radius:7px;cursor:pointer;text-decoration:none;
+  transition:all .2s;display:inline-block;
+}
+.btn-ghost:hover{color:var(--text);border-color:rgba(0,0,0,.25)}
+.trust-strip{
+  margin-top:72px;
+  opacity:0;animation:fadeUp .8s ease .55s forwards;
+}
+.trust-label{font-size:11px;color:var(--text3);letter-spacing:.08em;text-transform:uppercase;margin-bottom:20px;font-weight:400}
+.trust-logos{display:flex;gap:36px;align-items:center;justify-content:center;flex-wrap:wrap}
+.trust-logo{
+  font-family:var(--sans);font-size:13px;font-weight:600;
+  color:var(--text3);letter-spacing:.04em;
+  transition:color .2s;
+}
+.trust-logo:hover{color:var(--text2)}
+
+/* ── SECTIONS ── */
+.hp-section{padding:96px 48px;position:relative}
+.s-eyebrow{
+  font-family:var(--body);font-size:11px;font-weight:500;
+  letter-spacing:.14em;text-transform:uppercase;
+  color:var(--blue);margin-bottom:16px;
+}
+.s-h2{
+  font-family:var(--sans);font-size:clamp(32px,3.5vw,52px);
+  font-weight:700;letter-spacing:-.025em;line-height:1.1;
+  color:var(--text);margin-bottom:16px;
+}
+.s-h2 .g{
+  background:linear-gradient(90deg,var(--blue),var(--violet));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+}
+.s-sub{font-size:15px;color:var(--text2);line-height:1.75;max-width:580px}
+.s-head{margin-bottom:56px}
+
+/* ── BENTO GRID ── */
+.bento{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);border:1px solid var(--border)}
+.bento-card{
+  background:var(--bg2);padding:36px 32px;
+  position:relative;overflow:hidden;
+  transition:background .25s;cursor:pointer;
+}
+.bento-card::before{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(135deg,rgba(37,99,235,.04),transparent 60%);
+  opacity:0;transition:opacity .3s;
+}
+.bento-card:hover{background:var(--bg3)}
+.bento-card:hover::before{opacity:1}
+.bc-num{
+  font-family:var(--sans);font-size:11px;font-weight:600;
+  letter-spacing:.1em;color:var(--blue);margin-bottom:20px;
+}
+.bc-tag{
+  display:inline-block;font-size:10px;font-weight:500;letter-spacing:.08em;
+  text-transform:uppercase;padding:3px 9px;border-radius:4px;
+  background:rgba(37,99,235,0.08);color:var(--blue);
+  margin-bottom:16px;
+}
+.bc-tag.v{background:rgba(124,58,237,0.08);color:var(--violet)}
+.bc-tag.t{background:rgba(13,148,136,0.08);color:var(--teal)}
+.bc-tag.a{background:rgba(217,119,6,0.08);color:var(--amber)}
+.bc-title{
+  font-family:var(--sans);font-size:16px;font-weight:600;
+  color:var(--text);line-height:1.35;margin-bottom:12px;
+}
+.bc-body{font-size:13px;color:var(--text2);line-height:1.65}
+.bc-arrow{
+  font-size:16px;color:var(--text3);
+  margin-top:28px;display:block;transition:color .2s,transform .2s;
+}
+.bento-card:hover .bc-arrow{color:var(--blue);transform:translateX(4px)}
+.bc-glow{
+  position:absolute;width:150px;height:150px;border-radius:50%;
+  filter:blur(50px);pointer-events:none;right:-30px;bottom:-30px;
+  opacity:0;transition:opacity .35s;
+}
+.bento-card:hover .bc-glow{opacity:1}
+
+/* ── FRAMEWORK SECTION ── */
+.fw-section{background:var(--bg2);border-top:1px solid var(--border)}
+.fw-layout{display:grid;grid-template-columns:280px 1fr;gap:0;border:1px solid var(--border);margin-top:56px}
+.fw-left{
+  padding:40px 36px;border-right:1px solid var(--border);
+  display:flex;flex-direction:column;justify-content:center;
+}
+.fw-right{display:flex;flex-direction:column}
+.fw-left-title{
+  font-family:var(--sans);font-size:13px;font-weight:600;
+  letter-spacing:.06em;text-transform:uppercase;color:var(--text3);
+  margin-bottom:12px;
+}
+.fw-left-word{
+  font-family:var(--sans);font-size:42px;font-weight:700;
+  letter-spacing:-.03em;
+  background:linear-gradient(135deg,var(--blue),var(--violet));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+}
+.fw-left-desc{font-size:13px;color:var(--text2);line-height:1.65;margin-top:20px}
+.fw-cards{display:grid;grid-template-columns:repeat(4,1fr);flex:1}
+.fw-card{
+  padding:28px 24px;border-right:1px solid var(--border);
+  border-bottom:1px solid var(--border);
+  transition:background .2s;display:flex;flex-direction:column;justify-content:center;
+}
+.fw-card:last-child{border-right:none}
+.fw-card:hover{background:var(--surface)}
+.fw-layer{
+  font-size:10px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--text3);margin-bottom:8px;
+}
+.fw-n{
+  font-family:var(--sans);font-size:28px;font-weight:700;
+  letter-spacing:-.03em;color:rgba(0,0,0,.05);
+  line-height:1;margin-bottom:10px;
+}
+.fw-title{font-family:var(--sans);font-size:13px;font-weight:600;color:var(--text);line-height:1.4;margin-bottom:8px}
+.fw-body{font-size:12px;color:var(--text2);line-height:1.6}
+.fw-pillars{display:flex;border-top:1px solid var(--border)}
+.fw-pill{
+  flex:1;padding:12px 20px;border-right:1px solid var(--border);
+  display:flex;align-items:center;gap:8px;
+}
+.fw-pill:last-child{border-right:none}
+.fw-pill-dot{width:4px;height:4px;border-radius:50%;background:var(--blue);flex-shrink:0}
+.fw-pill-text{font-size:12px;color:var(--text2)}
+
+/* ── PROBLEMS SECTION ── */
+.problems-layout{display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid var(--border)}
+.prob{
+  padding:40px 40px;border-right:1px solid var(--border);border-bottom:1px solid var(--border);
+  transition:background .2s;position:relative;overflow:hidden;
+}
+.prob:hover{background:var(--surface)}
+.prob:nth-child(2n){border-right:none}
+.prob:nth-last-child(-n+2){border-bottom:none}
+.prob-num{
+  font-family:var(--sans);font-size:11px;font-weight:600;
+  letter-spacing:.1em;color:var(--text3);margin-bottom:14px;
+}
+.prob-title{
+  font-family:var(--sans);font-size:17px;font-weight:600;
+  color:var(--text);line-height:1.3;margin-bottom:10px;letter-spacing:-.01em;
+}
+.prob-body{font-size:13px;color:var(--text2);line-height:1.65}
+.prob-line{
+  position:absolute;top:0;left:0;right:0;height:1px;
+  background:linear-gradient(90deg,var(--blue),var(--violet),transparent);
+  transform:scaleX(0);transform-origin:left;
+  transition:transform .4s cubic-bezier(.4,0,.2,1);
+}
+.prob:hover .prob-line{transform:scaleX(1)}
+
+/* ── INDUSTRIES ── */
+.ind-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:56px}
+.ind-card{
+  padding:36px 28px;
+  border:1px solid var(--border);border-radius:10px;
+  background:var(--bg2);
+  position:relative;overflow:hidden;
+  transition:border-color .25s,background .25s;
+}
+.ind-card:hover{border-color:var(--border2);background:var(--bg3)}
+.ind-icon{
+  width:40px;height:40px;border-radius:8px;
+  display:flex;align-items:center;justify-content:center;
+  margin-bottom:20px;font-size:18px;
+}
+.ind-icon.b{background:rgba(37,99,235,0.08)}
+.ind-icon.v{background:rgba(124,58,237,0.08)}
+.ind-icon.t{background:rgba(13,148,136,0.08)}
+.ind-icon.a{background:rgba(217,119,6,0.08)}
+.ind-name{
+  font-family:var(--sans);font-size:17px;font-weight:700;
+  color:var(--text);margin-bottom:10px;letter-spacing:-.01em;
+}
+.ind-body{font-size:13px;color:var(--text2);line-height:1.65}
+
+/* ── WHY SECTION ── */
+.hp-why-section{background:var(--bg2);border-top:1px solid var(--border)}
+.why-grid-hp{display:grid;grid-template-columns:repeat(2,1fr);gap:0;border:1px solid var(--border);margin-top:56px}
+.why-card-hp{
+  padding:44px 40px;border-right:1px solid var(--border);border-bottom:1px solid var(--border);
+  transition:background .2s;
+}
+.why-card-hp:nth-child(2n){border-right:none}
+.why-card-hp:nth-last-child(-n+2){border-bottom:none}
+.why-card-hp:hover{background:var(--surface)}
+.why-num-hp{
+  font-family:var(--sans);font-size:11px;font-weight:600;
+  color:var(--blue);letter-spacing:.1em;margin-bottom:14px;
+}
+.why-title-hp{font-family:var(--sans);font-size:17px;font-weight:600;color:var(--text);margin-bottom:10px;letter-spacing:-.01em}
+.why-body-hp{font-size:13px;color:var(--text2);line-height:1.65}
+
+/* ── ABOUT ── */
+.about-layout-hp{display:grid;grid-template-columns:1fr 1fr;gap:96px;align-items:start}
+.about-h2-hp{
+  font-family:var(--sans);font-size:clamp(32px,3.5vw,50px);
+  font-weight:700;letter-spacing:-.03em;line-height:1.1;
+  color:var(--text);margin-bottom:24px;
+}
+.about-sub-hp{font-size:15px;color:var(--text2);line-height:1.75;margin-bottom:28px}
+.principles-hp{border:1px solid var(--border);border-radius:8px;overflow:hidden}
+.pr-hp{
+  padding:22px 24px;border-bottom:1px solid var(--border);
+  display:flex;gap:16px;align-items:flex-start;
+  transition:background .2s;
+}
+.pr-hp:last-child{border-bottom:none}
+.pr-hp:hover{background:var(--surface)}
+.pr-icon-hp{
+  width:20px;height:20px;border-radius:50%;
+  background:rgba(37,99,235,0.10);
+  display:flex;align-items:center;justify-content:center;
+  flex-shrink:0;margin-top:1px;
+}
+.pr-icon-hp::after{content:'';width:5px;height:5px;border-radius:50%;background:var(--blue)}
+.pr-text-hp{font-size:14px;color:var(--text);line-height:1.55;font-weight:400}
+.about-quote-hp{
+  font-family:var(--sans);font-size:20px;font-weight:600;
+  letter-spacing:-.02em;line-height:1.4;
+  color:var(--text);margin-top:36px;
+  padding:24px 28px;
+  background:var(--surface);border-radius:8px;
+  border-left:2px solid var(--blue);border-top-left-radius:0;border-bottom-left-radius:0;
+}
+.about-quote-hp em{
+  background:linear-gradient(90deg,var(--blue),var(--teal));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  font-style:normal;
+}
+
+/* ── CTA ── */
+.hp-cta-section{
+  position:relative;overflow:hidden;
+  text-align:center;padding:120px 48px;
+  border-top:1px solid var(--border);
+}
+.cta-orb-l{position:absolute;left:-100px;top:50%;transform:translateY(-50%);width:500px;height:500px;border-radius:50%;background:rgba(37,99,235,0.06);filter:blur(100px);pointer-events:none}
+.cta-orb-r{position:absolute;right:-100px;top:50%;transform:translateY(-50%);width:500px;height:500px;border-radius:50%;background:rgba(124,58,237,0.06);filter:blur(100px);pointer-events:none}
+.cta-badge{
+  display:inline-flex;align-items:center;gap:6px;
+  font-size:11px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--text2);border:1px solid var(--border2);
+  padding:5px 14px;border-radius:100px;margin-bottom:28px;
+}
+.cta-h2-hp{
+  font-family:var(--sans);font-size:clamp(40px,5vw,70px);
+  font-weight:700;letter-spacing:-.03em;line-height:1.0;
+  color:var(--text);margin-bottom:20px;
+}
+.cta-h2-hp .grad{
+  background:linear-gradient(135deg,var(--blue),var(--violet),var(--teal));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+}
+.cta-sub-hp{font-size:16px;color:var(--text2);max-width:460px;margin:0 auto 48px;line-height:1.7}
+.cta-btns-hp{display:flex;gap:12px;justify-content:center}
+.btn-grad{
+  font-family:var(--sans);font-size:13px;font-weight:600;letter-spacing:.03em;
+  padding:14px 32px;
+  background:linear-gradient(135deg,var(--blue),var(--violet));
+  color:#fff;border:none;border-radius:7px;cursor:pointer;
+  text-decoration:none;display:inline-block;
+  transition:opacity .2s,transform .1s;
+}
+.btn-grad:hover{opacity:.9;transform:translateY(-1px)}
+
+/* ── FOOTER OVERRIDE ── */
+body.home-page .footer{
+  border-top:1px solid var(--border);
+  padding:32px 48px;
+  display:flex;align-items:center;justify-content:space-between;
+  background:var(--bg2);
+}
+body.home-page .footer .container{
+  display:flex;align-items:center;justify-content:space-between;width:100%;max-width:none;padding:0;
+}
+.hp-footer-logo{font-family:var(--sans);font-size:15px;font-weight:700;color:var(--text)}
+.hp-footer-links{display:flex;gap:24px}
+.hp-footer-links a{font-size:12px;color:var(--text3);text-decoration:none;transition:color .2s}
+.hp-footer-links a:hover{color:var(--text2)}
+.hp-footer-copy{font-size:12px;color:var(--text3)}
+
+/* ── REVEAL ── */
+.r{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
+.r.vis{opacity:1;transform:none}
+.r1{opacity:0;transform:translateY(20px);transition:opacity .7s .1s ease,transform .7s .1s ease}
+.r1.vis{opacity:1;transform:none}
+.r2{opacity:0;transform:translateY(20px);transition:opacity .7s .2s ease,transform .7s .2s ease}
+.r2.vis{opacity:1;transform:none}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
+
+/* ── FLOATING DOTS ── */
+.hero-dot{
+  position:absolute;border-radius:50%;pointer-events:none;z-index:0;
+  opacity:0;animation:dotFloat 16s ease-in-out infinite, dotAppear 2s ease forwards;
+}
+.hd-1{width:6px;height:6px;background:var(--blue);top:18%;left:12%;animation-delay:0s,0.5s}
+.hd-2{width:4px;height:4px;background:var(--violet);top:30%;right:10%;animation-delay:2s,0.8s}
+.hd-3{width:5px;height:5px;background:var(--teal);bottom:25%;left:8%;animation-delay:4s,1.1s}
+.hd-4{width:3px;height:3px;background:var(--blue);bottom:35%;right:15%;animation-delay:6s,1.4s}
+.hd-5{width:4px;height:4px;background:var(--amber);top:45%;left:20%;animation-delay:8s,1.7s}
+@keyframes dotFloat{
+  0%,100%{transform:translate(0,0)}
+  25%{transform:translate(15px,-20px)}
+  50%{transform:translate(-10px,-35px)}
+  75%{transform:translate(20px,-15px)}
+}
+@keyframes dotAppear{from{opacity:0}to{opacity:.5}}
+
+/* ── RESPONSIVE ── */
+@media(max-width:960px){
+  body.home-page .navbar .container{padding:0 20px}
+  .hp-section{padding:72px 20px}
+  .hp-hero{padding-left:20px;padding-right:20px}
+  .bento,.fw-cards{grid-template-columns:1fr 1fr}
+  .fw-layout{grid-template-columns:1fr}
+  .fw-left{border-right:none;border-bottom:1px solid var(--border)}
+  .fw-pillars{flex-wrap:wrap}
+  .problems-layout,.why-grid-hp,.about-layout-hp,.ind-grid{grid-template-columns:1fr}
+  .prob:nth-child(2n){border-right:none}
+  body.home-page .footer{flex-direction:column;gap:20px;text-align:center;padding:28px 20px}
+  body.home-page .footer .container{flex-direction:column;gap:20px}
+  .hp-cta-section{padding:80px 20px}
+}
+</style>
 </head>
-<body>
-    <!-- Navigation -->
-    <nav class="navbar">
-        <div class="container">
-            <a href="index.html" class="nav-brand">
-                <svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 342 392" role="img" aria-label="Truly Services TS icon" class="logo-img">
-                  <defs>
-                    <!-- Light gradient optimized for dark blue backgrounds -->
-                    <linearGradient id="tsGradLight" x1="0" y1="0" x2="0" y2="1">
-                      <stop offset="0%"  stop-color="#6EF2D8"/>
-                      <stop offset="55%" stop-color="#8EC9FF"/>
-                      <stop offset="100%" stop-color="#C7A9FF"/>
-                    </linearGradient>
-                  </defs>
+<body class="home-page">
 
-                  <!-- Main TS hex mark -->
-                  <path fill="url(#tsGradLight)" d="M 169 20 L 27 98 L 20 108 L 21 161 L 99 122 L 99 332 L 173 372 L 321 289 L 321 211 L 230 161 L 227 138 L 251 123 L 269 134 L 272 151 L 321 176 L 322 103 L 248 64 L 175 106 L 176 190 L 269 240 L 270 260 L 229 283 L 227 255 L 176 227 L 173 315 L 150 302 L 150 92 L 224 49 Z"/>
-
-                  <!-- Inner left detail -->
-                  <path fill="url(#tsGradLight)" d="M 71 163 L 65 167 L 63 167 L 61 169 L 59 169 L 58 170 L 56 169 L 57 170 L 54 173 L 52 173 L 50 175 L 49 174 L 46 177 L 39 180 L 30 186 L 27 186 L 27 187 L 25 189 L 22 190 L 21 192 L 21 237 L 22 238 L 22 244 L 21 245 L 21 260 L 22 261 L 22 276 L 21 277 L 21 284 L 22 285 L 22 290 L 40 299 L 42 301 L 47 303 L 54 308 L 60 311 L 62 311 L 64 313 L 73 317 L 73 163 Z"/>
-                </svg>
-                <span class="brand-name">Truly Services</span>
-            </a>
-            <ul class="nav-menu">
-                <li class="nav-services">
-                    <a href="services.html">Services</a>
-                    <ul class="nav-dropdown">
-                        <li><a href="ai-opportunity-assessment.html">AI Opportunity Blueprint</a></li>
-                        <li><a href="business-capability-architecture-accelerator.html">Enterprise Capability Blueprint</a></li>
-                        <li><a href="architecture-governance-blueprint.html">Architecture Governance Blueprint</a></li>
-                        <li><a href="application-portfolio-management-blueprint.html">Application Portfolio Management Blueprint</a></li>
-                    </ul>
-                </li>
-                <li><a href="enterprise-architecture-transformation-framework.html">Framework</a></li>
-                <li><a href="insights.html">Insights</a></li>
-                <li><a href="#why">Why Us</a></li>
-                <li><a href="#about">About</a></li>
-            </ul>
-        </div>
-    </nav>
-
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="container">
-            <h1>Strategy · Architecture · AI</h1>
-            <p class="hero-subtitle">We help enterprises align strategy, applications, governance, and innovation to drive focused and measurable transformation.</p>
-            <div class="hero-buttons">
-                <button id="openConversationBtn" class="btn btn-primary">Start a Conversation</button>
-                <a href="#framework" class="btn btn-secondary">Explore the framework</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Familiar Challenges Section -->
-    <section class="familiar-challenges">
-        <div class="container">
-            <div class="familiar-layout">
-                <div class="familiar-intro">
-                    <h2>Does this sound familiar?</h2>
-                    <p class="familiar-subtitle">Many teams are capable and committed, but still get blocked by unclear decisions and competing priorities.</p>
-                    <p class="challenges-close">These challenges are rarely technical—they are alignment and decision challenges.</p>
-                </div>
-                <ul class="challenges-list">
-                    <li><span class="challenge-dot" aria-hidden="true"></span>Strategy exists, but execution lacks clarity.</li>
-                    <li><span class="challenge-dot" aria-hidden="true"></span>Architecture decisions are delayed or bypassed.</li>
-                    <li><span class="challenge-dot" aria-hidden="true"></span>Too many initiatives, unclear priorities.</li>
-                    <li><span class="challenge-dot" aria-hidden="true"></span>Delivery teams struggle with dependencies and trade-offs.</li>
-                    <li><span class="challenge-dot" aria-hidden="true"></span>AI opportunities exist, but feel fragmented or risky.</li>
+<!-- Navigation -->
+<nav class="navbar">
+    <div class="container">
+        <a href="index.html" class="nav-brand nav-logo-hp">Truly</a>
+        <ul class="nav-menu">
+            <li class="nav-services">
+                <a href="#">Services</a>
+                <ul class="nav-dropdown">
+                    <li><a href="ai-opportunity-assessment.html">AI Opportunity Blueprint</a></li>
+                    <li><a href="business-capability-architecture-accelerator.html">Enterprise Capability Blueprint</a></li>
+                    <li><a href="architecture-governance-blueprint.html">Architecture Governance Blueprint</a></li>
+                    <li><a href="application-portfolio-management-blueprint.html">Application Portfolio Management Blueprint</a></li>
                 </ul>
-            </div>
+            </li>
+            <li><a href="enterprise-architecture-transformation-framework.html">Framework</a></li>
+            <li><a href="insights.html">Insights</a></li>
+            <li><a href="#why">Why Us</a></li>
+            <li><a href="#about">About</a></li>
+        </ul>
+    </div>
+</nav>
+
+<!-- HERO -->
+<section class="hp-hero">
+  <div class="hero-mesh"></div>
+  <div class="hero-grid-lines"></div>
+  <div class="orb orb-blue"></div>
+  <div class="orb orb-violet"></div>
+  <div class="orb orb-teal"></div>
+  <!-- Floating accent dots -->
+  <div class="hero-dot hd-1"></div>
+  <div class="hero-dot hd-2"></div>
+  <div class="hero-dot hd-3"></div>
+  <div class="hero-dot hd-4"></div>
+  <div class="hero-dot hd-5"></div>
+
+  <div class="hero-pill">
+    <div class="hero-pill-dot"></div>
+    Strategy · Architecture · AI-Enabled Execution
+  </div>
+
+  <h1 class="hp-hero-h1">
+    Better decisions.<br>
+    <span class="grad">Faster execution.</span>
+  </h1>
+
+  <p class="hero-sub">We help enterprises align strategy, applications, governance, and AI — with fixed-scope advisory blueprints that deliver measurable outcomes, not open-ended retainers.</p>
+
+  <div class="hero-btns">
+    <button id="openConversationBtn" class="btn-primary-hp">Start a conversation</button>
+    <a href="#framework" class="btn-ghost">Explore the framework →</a>
+  </div>
+
+  <div class="trust-strip">
+    <div class="trust-label">Trusted across complex enterprise environments</div>
+    <div class="trust-logos">
+      <span class="trust-logo">Fashion</span>
+      <span class="trust-logo" style="color:var(--text3)">·</span>
+      <span class="trust-logo">Banking</span>
+      <span class="trust-logo" style="color:var(--text3)">·</span>
+      <span class="trust-logo">Food & Beverage</span>
+      <span class="trust-logo" style="color:var(--text3)">·</span>
+      <span class="trust-logo">High-Tech</span>
+      <span class="trust-logo" style="color:var(--text3)">·</span>
+      <span class="trust-logo">Netherlands · B.V.</span>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES / BENTO -->
+<section id="services" class="hp-section" style="border-top:1px solid var(--border)">
+  <div class="s-head">
+    <div class="s-eyebrow r">Advisory Blueprints</div>
+    <h2 class="s-h2 r">Four blueprints. <span class="g">One framework.</span></h2>
+    <p class="s-sub r1">Fixed-scope advisory engagements, each built to deliver one clear, actionable output. Strategy-aligned, governance-structured, portfolio-disciplined.</p>
+  </div>
+  <div class="bento r2">
+    <div class="bento-card">
+      <div class="bc-tag">Structure</div>
+      <div class="bc-num">Blueprint 01</div>
+      <div class="bc-title">Enterprise Capability Blueprint</div>
+      <div class="bc-body">Define the business capability structure that aligns your organization to strategy. Establish a shared language across leadership and delivery teams.</div>
+      <span class="bc-arrow">→</span>
+      <div class="bc-glow" style="background:rgba(37,99,235,.12)"></div>
+    </div>
+    <div class="bento-card">
+      <div class="bc-tag v">Portfolio</div>
+      <div class="bc-num">Blueprint 02</div>
+      <div class="bc-title">Application Portfolio Management Blueprint</div>
+      <div class="bc-body">Assess the health of your application landscape. Prioritize modernization, rationalization, and investment decisions with clarity.</div>
+      <span class="bc-arrow">→</span>
+      <div class="bc-glow" style="background:rgba(124,58,237,.12)"></div>
+    </div>
+    <div class="bento-card">
+      <div class="bc-tag t">Governance</div>
+      <div class="bc-num">Blueprint 03</div>
+      <div class="bc-title">Architecture Governance Blueprint</div>
+      <div class="bc-body">Establish decision rights, review cadences, and guardrails that keep architecture decisions consistent, traceable, and aligned to strategy.</div>
+      <span class="bc-arrow">→</span>
+      <div class="bc-glow" style="background:rgba(13,148,136,.12)"></div>
+    </div>
+    <div class="bento-card">
+      <div class="bc-tag a">Innovation</div>
+      <div class="bc-num">Blueprint 04</div>
+      <div class="bc-title">AI Opportunity Blueprint</div>
+      <div class="bc-body">Identify where AI creates measurable value in your context. Build a prioritized roadmap grounded in your actual capabilities and risk appetite.</div>
+      <span class="bc-arrow">→</span>
+      <div class="bc-glow" style="background:rgba(217,119,6,.12)"></div>
+    </div>
+  </div>
+</section>
+
+<!-- FRAMEWORK -->
+<section id="framework" class="hp-section fw-section">
+  <div class="s-head">
+    <div class="s-eyebrow r">TRULY Enterprise Architecture Transformation Framework™</div>
+    <h2 class="s-h2 r">Strategy anchors <span class="g">everything.</span></h2>
+    <p class="s-sub r1" style="max-width:none">Four advisory layers, each connected. Structure → Portfolio → Governance → Innovation. Every layer feeds the next.</p>
+  </div>
+  <div class="fw-layout r2">
+    <div class="fw-left">
+      <div>
+        <div class="fw-left-title">Foundation</div>
+        <div class="fw-left-word">Strategy</div>
+        <div class="fw-left-desc">Strategy isn't one of the four layers — it's what all four layers serve. Every blueprint is anchored to the strategic intent of your organization.</div>
+      </div>
+      <div style="margin-top:24px">
+        <div style="font-size:10px;color:var(--text3);letter-spacing:.08em;text-transform:uppercase;margin-bottom:8px">Outcomes</div>
+        <div style="display:flex;flex-direction:column;gap:4px">
+          <div style="font-size:12px;color:var(--text2)">→ Aligned capabilities</div>
+          <div style="font-size:12px;color:var(--text2)">→ Clear portfolio decisions</div>
+          <div style="font-size:12px;color:var(--text2)">→ Governed architecture</div>
+          <div style="font-size:12px;color:var(--text2)">→ Prioritized AI roadmap</div>
         </div>
-    </section>
-
-    <section class="framework-highlight" id="framework">
-        <div class="container">
-            <p class="framework-kicker">Enterprise Framework</p>
-            <h2>TRULY Enterprise Architecture Transformation Framework™</h2>
-            <p class="framework-intro">We help organizations structure their enterprise, align portfolios to capabilities, govern architecture decisions, and enable innovation through structured, fixed-scope advisory blueprints.</p>
-
-            <ul class="framework-positioning">
-                <li>Strategy-aligned</li>
-                <li>Capability-driven</li>
-                <li>Governance-structured</li>
-                <li>Portfolio-disciplined</li>
-            </ul>
-
-            <div class="framework-visual">
-                <div class="framework-map-wrap" aria-label="Clickable enterprise transformation framework">
-                    <svg class="framework-map" viewBox="0 0 1200 470" role="img" aria-labelledby="frameworkMapTitle frameworkMapDesc">
-                        <title id="frameworkMapTitle">TRULY Enterprise Architecture Transformation Framework</title>
-                        <desc id="frameworkMapDesc">Strategy anchors four advisory layers: Structure, Portfolio, Governance, and Innovation. Each layer is clickable.</desc>
-
-                        <rect x="16" y="16" width="1168" height="438" rx="18" class="framework-map-surface"></rect>
-
-                        <a href="enterprise-architecture-transformation-framework.html" class="framework-map-link" aria-label="Open Enterprise Architecture Transformation Framework">
-                            <rect x="430" y="44" width="340" height="62" rx="31" class="framework-map-strategy"></rect>
-                            <text x="600" y="82" text-anchor="middle" class="framework-map-strategy-text">Strategy</text>
-                        </a>
-
-                        <line x1="600" y1="106" x2="600" y2="154" class="framework-map-line"></line>
-
-                        <line x1="170" y1="154" x2="1030" y2="154" class="framework-map-line"></line>
-
-                        <line x1="170" y1="154" x2="170" y2="186" class="framework-map-line"></line>
-                        <line x1="456" y1="154" x2="456" y2="186" class="framework-map-line"></line>
-                        <line x1="744" y1="154" x2="744" y2="186" class="framework-map-line"></line>
-                        <line x1="1030" y1="154" x2="1030" y2="186" class="framework-map-line"></line>
-
-                        <a href="business-capability-architecture-accelerator.html" class="framework-map-link" aria-label="Open Enterprise Capability Blueprint">
-                            <rect x="40" y="186" width="260" height="232" rx="14" class="framework-map-card"></rect>
-                            <circle cx="78" cy="220" r="18" class="framework-map-badge"></circle>
-                            <text x="78" y="226" text-anchor="middle" class="framework-map-badge-text">1</text>
-                            <text x="58" y="274" class="framework-map-card-title">Structure</text>
-                            <text x="58" y="316" class="framework-map-card-body">Enterprise Capability Blueprint</text>
-                        </a>
-
-                        <a href="application-portfolio-management-blueprint.html" class="framework-map-link" aria-label="Open Application Portfolio Management Blueprint">
-                            <rect x="326" y="186" width="260" height="232" rx="14" class="framework-map-card"></rect>
-                            <circle cx="364" cy="220" r="18" class="framework-map-badge"></circle>
-                            <text x="364" y="226" text-anchor="middle" class="framework-map-badge-text">2</text>
-                            <text x="344" y="274" class="framework-map-card-title">Portfolio</text>
-                            <text x="344" y="316" class="framework-map-card-body">Application Portfolio</text>
-                            <text x="344" y="346" class="framework-map-card-body">Management Blueprint</text>
-                        </a>
-
-                        <a href="architecture-governance-blueprint.html" class="framework-map-link" aria-label="Open Architecture Governance Blueprint">
-                            <rect x="614" y="186" width="260" height="232" rx="14" class="framework-map-card"></rect>
-                            <circle cx="652" cy="220" r="18" class="framework-map-badge"></circle>
-                            <text x="652" y="226" text-anchor="middle" class="framework-map-badge-text">3</text>
-                            <text x="632" y="274" class="framework-map-card-title">Governance</text>
-                            <text x="632" y="316" class="framework-map-card-body">Architecture Governance</text>
-                            <text x="632" y="346" class="framework-map-card-body">Blueprint</text>
-                        </a>
-
-                        <a href="ai-opportunity-assessment.html" class="framework-map-link" aria-label="Open AI Opportunity Blueprint">
-                            <rect x="900" y="186" width="260" height="232" rx="14" class="framework-map-card"></rect>
-                            <circle cx="938" cy="220" r="18" class="framework-map-badge"></circle>
-                            <text x="938" y="226" text-anchor="middle" class="framework-map-badge-text">4</text>
-                            <text x="918" y="274" class="framework-map-card-title">Innovation</text>
-                            <text x="918" y="316" class="framework-map-card-body">AI Opportunity Blueprint</text>
-                        </a>
-                    </svg>
-                </div>
-
-                <div class="framework-mobile-grid" aria-label="Enterprise framework links for mobile">
-                    <p class="framework-mobile-strategy">Strategy</p>
-                    <a href="business-capability-architecture-accelerator.html" class="framework-mobile-card">
-                        <h3>Enterprise Capability Blueprint</h3>
-                        <p>Define the business capability structure aligned to strategy.</p>
-                    </a>
-                    <a href="application-portfolio-management-blueprint.html" class="framework-mobile-card">
-                        <h3>Application Portfolio Management Blueprint</h3>
-                        <p>Assess portfolio health and prioritize modernization actions.</p>
-                    </a>
-                    <a href="architecture-governance-blueprint.html" class="framework-mobile-card">
-                        <h3>Architecture Governance Blueprint</h3>
-                        <p>Establish decision rights, guardrails, and architecture controls.</p>
-                    </a>
-                    <a href="ai-opportunity-assessment.html" class="framework-mobile-card">
-                        <h3>AI Opportunity Blueprint</h3>
-                        <p>Identify and prioritize high-value AI opportunities and roadmap.</p>
-                    </a>
-                </div>
-            </div>
-
-            <div class="framework-actions">
-                <a href="enterprise-architecture-transformation-framework.html" class="btn btn-primary">Explore the framework</a>
-            </div>
+      </div>
+    </div>
+    <div class="fw-right">
+      <div class="fw-cards">
+        <div class="fw-card">
+          <div class="fw-layer">Structure</div>
+          <div class="fw-n">01</div>
+          <div class="fw-title">Enterprise Capability Blueprint</div>
+          <div class="fw-body">Define capability structure aligned to strategy.</div>
         </div>
-    </section>
-
-    <section class="industry-section" id="industry-expertise">
-        <div class="container">
-            <div class="industry-showcase industry-showcase-standalone">
-                <div class="industry-heading">
-                    <p class="industry-kicker">Cross-Sector Impact</p>
-                    <h3 class="industry-title">Industry Expertise</h3>
-                    <p class="industry-intro">Experience across complex environments where clear decisions and execution discipline drive outcomes.</p>
-                </div>
-                <div class="industry-expertise">
-                    <div class="industry-item">
-                        <h4>Fashion</h4>
-                        <p>Supporting fashion organizations in fast-moving, seasonal environments where scale, speed, and operational clarity matter.</p>
-                    </div>
-                    <div class="industry-item">
-                        <h4>Banking</h4>
-                        <p>Helping banking organizations navigate complexity, regulation, and modernization with clear strategy and architecture.</p>
-                    </div>
-                    <div class="industry-item">
-                        <h4>Food &amp; Beverages</h4>
-                        <p>Working with food and beverage organizations to improve operational clarity, efficiency, and execution.</p>
-                    </div>
-                    <div class="industry-item">
-                        <h4>High-Tech</h4>
-                        <p>Supporting high-tech organizations as they scale platforms, products, and digital capabilities.</p>
-                    </div>
-                </div>
-            </div>
+        <div class="fw-card">
+          <div class="fw-layer">Portfolio</div>
+          <div class="fw-n">02</div>
+          <div class="fw-title">Application Portfolio Blueprint</div>
+          <div class="fw-body">Assess health, prioritize modernization actions.</div>
         </div>
-    </section>
-
-    <!-- Why Clients Work With Us Section -->
-    <section class="why-choose" id="why">
-        <div class="container">
-            <p class="why-kicker">Why Truly Services</p>
-            <h2>Why Clients Work With Us</h2>
-            <p class="why-intro">We combine strategic clarity with delivery discipline so teams can move faster, make better decisions, and execute with confidence.</p>
-            <div class="choose-grid">
-                <div class="choose-item">
-                    <span class="choose-tag">01</span>
-                    <h3>Strategy-to-execution focus</h3>
-                </div>
-                <div class="choose-item">
-                    <span class="choose-tag">02</span>
-                    <h3>Strong architecture discipline</h3>
-                </div>
-                <div class="choose-item">
-                    <span class="choose-tag">03</span>
-                    <h3>Pragmatic, delivery-oriented mindset</h3>
-                </div>
-                <div class="choose-item">
-                    <span class="choose-tag">04</span>
-                    <h3>AI applied where it creates measurable value</h3>
-                </div>
-            </div>
+        <div class="fw-card">
+          <div class="fw-layer">Governance</div>
+          <div class="fw-n">03</div>
+          <div class="fw-title">Architecture Governance Blueprint</div>
+          <div class="fw-body">Decision rights, guardrails, architecture controls.</div>
         </div>
-    </section>
-
-    <!-- About Section -->
-    <section class="about" id="about">
-        <div class="container">
-            <p class="about-kicker">Who We Are</p>
-            <h2>About</h2>
-            <div class="about-panel">
-                <p class="about-text">Our work is grounded in three principles:</p>
-                <ul class="about-principles">
-                    <li><span class="principle-dot" aria-hidden="true"></span><span class="principle-text">Business capability thinking</span></li>
-                    <li><span class="principle-dot" aria-hidden="true"></span><span class="principle-text">Architecture as a decision-making tool</span></li>
-                    <li><span class="principle-dot" aria-hidden="true"></span><span class="principle-text">Pragmatic use of AI to reduce friction in operations</span></li>
-                </ul>
-                <p class="about-goal">The goal is simple: better decisions, faster execution, sustainable outcomes.</p>
-            </div>
+        <div class="fw-card" style="border-right:none">
+          <div class="fw-layer">Innovation</div>
+          <div class="fw-n">04</div>
+          <div class="fw-title">AI Opportunity Blueprint</div>
+          <div class="fw-body">High-value AI priorities and roadmap.</div>
         </div>
-    </section>
+      </div>
+      <div class="fw-pillars">
+        <div class="fw-pill"><div class="fw-pill-dot"></div><div class="fw-pill-text">Strategy-aligned</div></div>
+        <div class="fw-pill"><div class="fw-pill-dot"></div><div class="fw-pill-text">Capability-driven</div></div>
+        <div class="fw-pill"><div class="fw-pill-dot" style="background:var(--violet)"></div><div class="fw-pill-text">Governance-structured</div></div>
+        <div class="fw-pill" style="border-right:none"><div class="fw-pill-dot" style="background:var(--teal)"></div><div class="fw-pill-text">Portfolio-disciplined</div></div>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <!-- Final CTA Section -->
-    <section class="cta-section">
-        <div class="container">
-            <div class="cta-panel">
-                <p class="cta-kicker">Start The Conversation</p>
-                <h2>Let's talk about your strategy, architecture, or AI challenges.</h2>
-                <p>No sales pitch—just a focused conversation about your context and next steps.</p>
-                <div class="cta-actions">
-                    <a href="index.html#about" class="btn btn-cta-secondary btn-large">Learn More</a>
-                    <button id="openConversationBtn2" class="btn btn-cta-primary btn-large">Book a Conversation</button>
-                </div>
-            </div>
+<!-- PROBLEMS -->
+<section id="problems" class="hp-section" style="border-top:1px solid var(--border)">
+  <div class="s-head">
+    <div class="s-eyebrow r">Does this sound familiar?</div>
+    <h2 class="s-h2 r">These aren't <span class="g">technical</span> problems.</h2>
+    <p class="s-sub r1">Most enterprise execution failures trace back to alignment, not engineering. If any of these feel familiar, we should talk.</p>
+  </div>
+  <div class="problems-layout r2">
+    <div class="prob">
+      <div class="prob-line"></div>
+      <div class="prob-num">01</div>
+      <div class="prob-title">Strategy without execution clarity</div>
+      <div class="prob-body">Vision is set. Teams are capable. Yet progress stalls because the path from intent to action is never fully defined.</div>
+    </div>
+    <div class="prob">
+      <div class="prob-line"></div>
+      <div class="prob-num">02</div>
+      <div class="prob-title">Architecture decisions delayed or bypassed</div>
+      <div class="prob-body">Work moves forward without governance. Technical debt accumulates quietly until it becomes expensive to undo.</div>
+    </div>
+    <div class="prob">
+      <div class="prob-line"></div>
+      <div class="prob-num">03</div>
+      <div class="prob-title">Too many initiatives, unclear priorities</div>
+      <div class="prob-body">Portfolio sprawl dilutes focus and burns capacity. Teams work hard — on the wrong things, in the wrong order.</div>
+    </div>
+    <div class="prob">
+      <div class="prob-line"></div>
+      <div class="prob-num">04</div>
+      <div class="prob-title">Delivery teams struggle with dependencies</div>
+      <div class="prob-body">Competing demands slow what should be simple decisions. Accountability gaps grow as interdependencies multiply.</div>
+    </div>
+    <div class="prob">
+      <div class="prob-line"></div>
+      <div class="prob-num">05</div>
+      <div class="prob-title">AI opportunities feel fragmented or risky</div>
+      <div class="prob-body">High potential with no clear activation path. Every team has a different definition of what AI should actually do.</div>
+    </div>
+    <div class="prob">
+      <div class="prob-line"></div>
+      <div class="prob-num">06</div>
+      <div class="prob-title">Measurement is unclear, outcomes hard to track</div>
+      <div class="prob-body">Effort is visible. Results remain elusive. Without clear metrics, it's impossible to know what's actually working.</div>
+    </div>
+  </div>
+</section>
+
+<!-- INDUSTRIES -->
+<section id="industries" class="hp-section" style="background:var(--bg2);border-top:1px solid var(--border)">
+  <div class="s-head">
+    <div class="s-eyebrow r">Cross-Sector Impact</div>
+    <h2 class="s-h2 r">Where <span class="g">complexity</span> demands precision.</h2>
+    <p class="s-sub r1">Experience across industries where misalignment is expensive and structured decision-making creates a real competitive edge.</p>
+  </div>
+  <div class="ind-grid r2">
+    <div class="ind-card">
+      <div class="ind-icon b">
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><rect x="2" y="8" width="14" height="2" rx="1" fill="#2563EB"/><rect x="5" y="4" width="8" height="2" rx="1" fill="#2563EB" opacity=".5"/><rect x="3" y="12" width="12" height="2" rx="1" fill="#2563EB" opacity=".3"/></svg>
+      </div>
+      <div class="ind-name">Fashion</div>
+      <div class="ind-body">Fast-moving, seasonal environments where scale, speed, and operational clarity drive outcomes. Architecture decisions have a shelf life.</div>
+    </div>
+    <div class="ind-card">
+      <div class="ind-icon v">
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><rect x="2" y="5" width="14" height="9" rx="2" stroke="#7C3AED" stroke-width="1.5" fill="none"/><rect x="5" y="9" width="8" height="1.5" rx=".75" fill="#7C3AED" opacity=".5"/></svg>
+      </div>
+      <div class="ind-name">Banking</div>
+      <div class="ind-body">Navigating complexity, regulation, and modernization with clear strategy and architecture discipline. Governance isn't optional here.</div>
+    </div>
+    <div class="ind-card">
+      <div class="ind-icon t">
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="5" stroke="#0D9488" stroke-width="1.5" fill="none"/><circle cx="9" cy="9" r="2" fill="#0D9488" opacity=".5"/></svg>
+      </div>
+      <div class="ind-name">Food & Beverage</div>
+      <div class="ind-body">Improving operational clarity, efficiency, and execution across distributed organizations. Capability alignment unlocks scale.</div>
+    </div>
+    <div class="ind-card">
+      <div class="ind-icon a">
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><polygon points="9,2 16,14 2,14" stroke="#D97706" stroke-width="1.5" fill="none"/><line x1="9" y1="7" x2="9" y2="11" stroke="#D97706" stroke-width="1.5" stroke-linecap="round"/></svg>
+      </div>
+      <div class="ind-name">High-Tech</div>
+      <div class="ind-body">Scaling platforms, products, and digital capabilities with the architecture to sustain growth. Speed without structure breaks at scale.</div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY US -->
+<section id="why" class="hp-section hp-why-section">
+  <div class="s-head">
+    <div class="s-eyebrow r">Why clients work with us</div>
+    <h2 class="s-h2 r">Strategic clarity. <span class="g">Delivery discipline.</span></h2>
+    <p class="s-sub r1">We combine sharp advisory thinking with a pragmatic, delivery-focused mindset — so the work actually moves forward.</p>
+  </div>
+  <div class="why-grid-hp r2">
+    <div class="why-card-hp">
+      <div class="why-num-hp">01 — Focus</div>
+      <div class="why-title-hp">Strategy-to-execution bridge</div>
+      <div class="why-body-hp">We translate leadership intent into structured, executable plans — closing the gap between what's decided and what gets built.</div>
+    </div>
+    <div class="why-card-hp">
+      <div class="why-num-hp">02 — Rigor</div>
+      <div class="why-title-hp">Architecture as decision infrastructure</div>
+      <div class="why-body-hp">Architecture isn't a deliverable — it's a decision-making tool. We bring rigor to choices that others defer or bypass entirely.</div>
+    </div>
+    <div class="why-card-hp">
+      <div class="why-num-hp">03 — Mindset</div>
+      <div class="why-title-hp">Pragmatic, delivery-oriented approach</div>
+      <div class="why-body-hp">We work within your constraints, timelines, and team realities. Frameworks serve delivery — not the other way around.</div>
+    </div>
+    <div class="why-card-hp">
+      <div class="why-num-hp">04 — AI</div>
+      <div class="why-title-hp">AI where it creates real value</div>
+      <div class="why-body-hp">Not every problem needs AI. We identify where it genuinely reduces friction and build a roadmap grounded in your actual context.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="hp-section" style="border-top:1px solid var(--border)">
+  <div class="about-layout-hp">
+    <div>
+      <div class="s-eyebrow r">About Truly Services</div>
+      <h2 class="about-h2-hp r">Built on three<br>core principles.</h2>
+      <div class="principles-hp r1">
+        <div class="pr-hp">
+          <div class="pr-icon-hp"></div>
+          <div class="pr-text-hp">Business capability thinking — understanding what the business does before recommending how it works.</div>
         </div>
-    </section>
+        <div class="pr-hp">
+          <div class="pr-icon-hp"></div>
+          <div class="pr-text-hp">Architecture as a decision-making tool — not a documentation exercise or a bureaucratic checkpoint.</div>
+        </div>
+        <div class="pr-hp">
+          <div class="pr-icon-hp"></div>
+          <div class="pr-text-hp">Pragmatic use of AI to reduce friction — applied where it actually creates measurable value, not just because it's new.</div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <p class="about-sub-hp r">Truly Services is an independent advisory firm based in the Netherlands. We work with enterprise organizations across complex, regulated, and fast-moving industries to bring strategic clarity to their most difficult alignment challenges.</p>
+      <p class="about-sub-hp r1">Our engagements are structured and fixed-scope by design. We believe focused advisory produces better outcomes than open-ended retainers — and that the best results come from working closely with the teams who carry the work forward.</p>
+      <div class="about-quote-hp r2">The goal is simple: <em>better decisions</em>, faster execution, sustainable outcomes.</div>
+    </div>
+  </div>
+</section>
 
-    <!-- Start a Conversation Section -->
-    <!-- Conversation Modal -->
-    <div id="conversationModal" class="modal">
-        <div class="modal-content">
-            <button class="modal-close" aria-label="Close modal">&times;</button>
-            <div class="modal-form-container">
-                <iframe
-                    id="JotFormIFrame-260251431877053"
-                    title="Contact"
-                    allowtransparency="true"
-                    allow="fullscreen;"
-                    src="https://form.jotform.com/260251431877053"
-                    frameborder="0"
-                    style="width:100%;height:700px;border:none;"
-                    scrolling="yes"
-                >
-                </iframe>
-                <script src='https://cdn.jotfor.ms/s/umd/latest/for-form-embed-handler.js'></script>
-                <script>window.jotformEmbedHandler("iframe[id='JotFormIFrame-260251431877053']", "https://form.jotform.com/")</script>
-            </div>
+<!-- CTA -->
+<section id="contact" class="hp-cta-section">
+  <div class="cta-orb-l"></div>
+  <div class="cta-orb-r"></div>
+  <div class="cta-badge r">No sales pitch — just a conversation</div>
+  <h2 class="cta-h2-hp r">
+    Your strategy.<br>
+    <span class="grad">Let's align it.</span>
+  </h2>
+  <p class="cta-sub-hp r1">Tell us about your context — strategy, architecture, or AI challenges. We'll figure out together whether there's a fit.</p>
+  <div class="cta-btns-hp r2">
+    <button id="openConversationBtn2" class="btn-grad">Book a conversation</button>
+    <a href="enterprise-architecture-transformation-framework.html" class="btn-ghost">Explore the framework →</a>
+  </div>
+</section>
+
+<!-- Conversation Modal -->
+<div id="conversationModal" class="modal">
+    <div class="modal-content">
+        <button class="modal-close" aria-label="Close modal">&times;</button>
+        <div class="modal-form-container">
+            <iframe
+                id="JotFormIFrame-260251431877053"
+                title="Contact"
+                allowtransparency="true"
+                allow="fullscreen;"
+                src="https://form.jotform.com/260251431877053"
+                frameborder="0"
+                style="width:100%;height:700px;border:none;"
+                scrolling="yes"
+            >
+            </iframe>
+            <script src='https://cdn.jotfor.ms/s/umd/latest/for-form-embed-handler.js'></script>
+            <script>window.jotformEmbedHandler("iframe[id='JotFormIFrame-260251431877053']", "https://form.jotform.com/")</script>
         </div>
     </div>
+</div>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <p>&copy; 2026 Truly Services B.V. All rights reserved.</p>
+<!-- Footer -->
+<footer class="footer">
+    <div class="container">
+        <div class="hp-footer-logo">Truly</div>
+        <div class="hp-footer-links">
+            <a href="#">Services</a>
+            <a href="enterprise-architecture-transformation-framework.html">Framework</a>
+            <a href="insights.html">Insights</a>
+            <a href="index.html#about">About</a>
         </div>
-    </footer>
+        <div class="hp-footer-copy">&copy; 2026 Truly B.V. All rights reserved.</div>
+    </div>
+</footer>
 
-    <!-- Scroll to Top Button -->
-    <button id="scrollToTop" class="scroll-to-top" aria-label="Scroll to top">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <polyline points="18 15 12 9 6 15"></polyline>
-        </svg>
-    </button>
+<!-- Scroll to Top Button -->
+<button id="scrollToTop" class="scroll-to-top" aria-label="Scroll to top">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="18 15 12 9 6 15"></polyline>
+    </svg>
+</button>
 
-    <script src="js/main.js"></script>
+<script src="js/main.js"></script>
+<script>
+// Reveal-on-scroll for new homepage sections
+const hpObs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('vis'); hpObs.unobserve(e.target); } });
+}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+document.querySelectorAll('.r,.r1,.r2').forEach(el => hpObs.observe(el));
+</script>
 </body>
 </html>

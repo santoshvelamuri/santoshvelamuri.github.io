@@ -167,8 +167,11 @@ const observer = new IntersectionObserver(function (entries) {
     });
 }, observerOptions);
 
-// Observe all sections
+// Observe all sections (skip hero sections which have their own animations)
 document.querySelectorAll('section').forEach(section => {
+    if (section.classList.contains('hp-hero') || section.classList.contains('hero')) {
+        return;
+    }
     section.style.opacity = '0';
     section.style.transform = 'translateY(20px)';
     section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
