@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Why Architecture Must Change in the AI Era - White Paper - Truly Services</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        .wp-landing {
+            min-height: calc(100vh - 64px);
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, rgba(37,99,235,0.03), rgba(124,58,237,0.03));
+            padding: 60px 0;
+        }
+        .wp-landing .container {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+        .wp-info p.wp-kicker {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: #2563EB;
+            margin-bottom: 0.75rem;
+        }
+        .wp-info h1 {
+            font-family: 'Syne', sans-serif;
+            font-size: clamp(28px, 3vw, 40px);
+            font-weight: 700;
+            color: #1A1A2E;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+        }
+        .wp-info .wp-subtitle {
+            font-size: 1rem;
+            color: #5C5C72;
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+        .wp-highlights {
+            display: flex;
+            flex-direction: column;
+            gap: 0.6rem;
+            margin-bottom: 1.5rem;
+        }
+        .wp-highlight-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.6rem;
+            font-size: 0.9rem;
+            color: #1A1A2E;
+            line-height: 1.5;
+        }
+        .wp-highlight-item svg {
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+        .wp-info .btn-grad {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 14px 32px;
+            font-size: 1rem;
+        }
+        .wp-preview-card {
+            background: #ffffff;
+            border: 1px solid rgba(0,0,0,0.08);
+            border-radius: 16px;
+            padding: 2rem;
+            box-shadow: 0 12px 40px rgba(0,0,0,0.08);
+            text-align: center;
+        }
+        .wp-preview-card .wp-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+        .wp-stat {
+            text-align: center;
+        }
+        .wp-stat-value {
+            font-family: 'Syne', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #2563EB;
+        }
+        .wp-stat-label {
+            font-size: 0.7rem;
+            color: #8E8EA0;
+            line-height: 1.4;
+            margin-top: 0.25rem;
+        }
+        .wp-preview-title {
+            font-family: 'Syne', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #1A1A2E;
+            margin-bottom: 0.5rem;
+        }
+        .wp-preview-meta {
+            font-size: 0.8rem;
+            color: #8E8EA0;
+        }
+        .wp-back {
+            font-size: 0.85rem;
+            color: #5C5C72;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            margin-top: 1rem;
+        }
+        .wp-back:hover { color: #2563EB; }
+
+        @media (max-width: 768px) {
+            .wp-landing { padding: 40px 20px; }
+            .wp-landing .container {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            .wp-preview-card { order: -1; }
+        }
+    </style>
+</head>
+<body class="article-page">
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="nav-brand">Truly</a>
+            <button class="menu-toggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+        <div class="nav-overlay"></div>
+        <ul class="nav-menu">
+                <li class="nav-services">
+                    <a href="#">Services</a>
+                    <ul class="nav-dropdown">
+                        <li><a href="ai-opportunity-assessment.html">AI Opportunity Blueprint</a></li>
+                        <li><a href="business-capability-architecture-accelerator.html">Enterprise Capability Blueprint</a></li>
+                        <li><a href="architecture-governance-blueprint.html">Architecture Governance Blueprint</a></li>
+                        <li><a href="application-portfolio-management-blueprint.html">Application Portfolio Management Blueprint</a></li>
+                    </ul>
+                </li>
+                <li><a href="enterprise-architecture-transformation-framework.html">Framework</a></li>
+                <li><a href="insights.html" class="active">Insights</a></li>
+                <li><a href="index.html#why">Why Us</a></li>
+                <li><a href="index.html#about">About</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="wp-landing">
+        <div class="container">
+            <div class="wp-info">
+                <p class="wp-kicker">White Paper · Strategy · Architecture · AI-Enabled Execution</p>
+                <h1>Why Architecture Must Change in the AI Era</h1>
+                <p class="wp-subtitle">How AI is creating an ungoverned technology estate — and why architecture leadership must transform to protect business value.</p>
+                <div class="wp-highlights">
+                    <div class="wp-highlight-item">
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="#2563EB" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        Ungoverned AI exposes organisations to regulatory fines, data breaches, and operational failures
+                    </div>
+                    <div class="wp-highlight-item">
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="#2563EB" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        The AI application explosion creates an estate most organisations cannot see, map, or control
+                    </div>
+                    <div class="wp-highlight-item">
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 5" stroke="#2563EB" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        Architecture must transform from a technical gatekeeper into a board-level governance capability
+                    </div>
+                </div>
+                <a href="whitepapers/why-architecture-must-change-in-the-ai-era.pdf" class="btn-grad" download>
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                    Download PDF
+                </a>
+                <br>
+                <a href="insights.html" class="wp-back">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+                    Back to Insights
+                </a>
+            </div>
+            <div class="wp-preview-card">
+                <p class="wp-preview-meta">10 pages · PDF · March 2026</p>
+                <p class="wp-preview-title">Why Architecture Must Change in the AI Era</p>
+                <div class="wp-stats">
+                    <div class="wp-stat">
+                        <div class="wp-stat-value">4%</div>
+                        <div class="wp-stat-label">of global turnover<br>GDPR fine ceiling</div>
+                    </div>
+                    <div class="wp-stat">
+                        <div class="wp-stat-value">3-10x</div>
+                        <div class="wp-stat-label">cost of reactive vs.<br>proactive governance</div>
+                    </div>
+                    <div class="wp-stat">
+                        <div class="wp-stat-value">10x</div>
+                        <div class="wp-stat-label">faster AI deployment<br>vs. previous shadow IT</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div id="conversationModal" class="modal">
+        <div class="modal-content">
+            <button class="modal-close" aria-label="Close modal">&times;</button>
+            <div class="modal-form-container">
+                <iframe
+                    id="JotFormIFrame-260251431877053"
+                    title="Contact"
+                    allowtransparency="true"
+                    allow="fullscreen;"
+                    src="https://form.jotform.com/260251431877053"
+                    frameborder="0"
+                    style="width:100%;height:700px;border:none;"
+                    scrolling="yes"
+                >
+                </iframe>
+                <script src='https://cdn.jotfor.ms/s/umd/latest/for-form-embed-handler.js'></script>
+                <script>window.jotformEmbedHandler("iframe[id='JotFormIFrame-260251431877053']", "https://form.jotform.com/")</script>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
